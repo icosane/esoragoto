@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    <script type="text/javascript" src="https://mpld3.github.io/js/d3.v3.min.js"></script>
+    <script type="text/javascript" src="https://mpld3.github.io/js/mpld3.v0.2.js"></script>
+  </head>
+  <body>
+    <script type="text/javascript">
+      d3.json("test.json", function(error, json) {
+        if (error) return console.warn(error);
+        mpld3.draw_figure("mplplot", json);
+      });
+    </script>
+    <div id="mplplot"></div>
+  </body>
+</html>
