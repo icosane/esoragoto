@@ -1,1 +1,1 @@
-web: gunicorn esoragoto.wsgi
+web: gunicorn mysite.wsgi
