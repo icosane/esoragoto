@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>title</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'esoragoto/css/home.css' %}" type="text/css" media="screen">
+  </head>
+  <body>
+    <h1>My awesome graph</h1>
+    <div id="fig_container">
+   {{ div_figure|safe }}
+</div>
+  <p>This is a placeholder. Cats are cute. Btw graph isn't static! You can zoom and everything. </p>
+    <p>Powered by Django, matplotlib, mpld3. Also it's crashing on graph update with "RuntimeError: main thread is not in main loop". idk why yet.
+    shit code available at <a href="https://github.com/icosane/esoragoto">this repo (Private for now)</a></p>
+   <img src="https://icatcare.org/app/uploads/2018/06/Layer-1704-1920x840.jpg" alt="Cat">
+  <div>
+<form action="another" method="POST">
+{% csrf_token %}
+Input N: <input type="text" name="N" class="TextField" placeholder="N" />
+  Input K: <input type="text" name="K" class="TextField" placeholder="K" />
+<input type="Submit" name="Submit" value="Submit"/>
+</form>
+</div>
+  </body>
+</html>
