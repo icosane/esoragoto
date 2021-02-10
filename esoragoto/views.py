@@ -4,6 +4,8 @@ import matplotlib.pyplot as plt
 import mpld3
 from django.shortcuts import render
 from esoragoto.forms import TextForm
+def index(request):
+    return render(request, 'home.html')
 def home(request):
     N = 10  # число осциляторов
     K = 3  # K/N = параметр амплитуды связи
@@ -51,7 +53,7 @@ def home(request):
 
     plt.close(fig)
 
-    return render(request, 'home.html', {'active_page': 'home.html', 'div_figure': html_fig})
+    return render(request, 'graph.html', {'active_page': 'graph.html', 'div_figure': html_fig})
 
 def another(request):
     N_ = int(request.POST['N'])

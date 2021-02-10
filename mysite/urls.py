@@ -19,7 +19,8 @@ from esoragoto import views
 from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('', views.home, name='home'),
+    path('', views.index, name='index'),
+    path('graph', views.home, name='home'),
     path('another', views.another, name='another'),
     path('admin/', admin.site.urls),
 ]
