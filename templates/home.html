@@ -14,11 +14,11 @@
     shit code available at <a href="https://github.com/icosane/esoragoto">this repo (Private for now)</a></p>
    <img src="https://icatcare.org/app/uploads/2018/06/Layer-1704-1920x840.jpg" alt="Cat">
   <div>
-<form id="user_input_form" method="post" action="another">
-    Enter N : <input class="io" name="data"><br>
-    {% csrf_token %}
-    {{ form }}
-      <input type="submit" value="Submit">
+<form action="another" method="POST">
+{% csrf_token %}
+Input N: <input type="text" name="N" class="TextField" placeholder="N" />
+  Input K: <input type="text" name="K" class="TextField" placeholder="K" />
+<input type="Submit" name="Submit" value="Submit"/>
 </form>
 </div>
   </body>

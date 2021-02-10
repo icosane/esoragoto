@@ -3,8 +3,8 @@ from django import forms
 #from esoragoto.models import textfield
 
 class TextForm(forms.Form):
-    data1 = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Required', 'size': 3}),error_messages={'required': 'Required'})
-    data2 = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Required', 'size': 3}), error_messages={'required': 'Required'})
+    form1 = forms.IntegerField(widget=forms.NumberInput)
+    form2 = forms.IntegerField(widget=forms.NumberInput)
     #class Meta:
         #model = textfield
         #fields = '__all__'

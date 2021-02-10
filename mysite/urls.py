@@ -20,6 +20,6 @@ from django.views.generic import TemplateView
 
 urlpatterns = [
     path('', views.home, name='home'),
-    path('another', views.another, TemplateView.as_view(template_name='another.html'), name='another'),
+    path('another', views.another, name='another'),
     path('admin/', admin.site.urls),
 ]

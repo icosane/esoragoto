@@ -3,26 +3,7 @@ from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 import mpld3
 from django.shortcuts import render
-#from subprocess import run,PIPE
-#import sys
 from esoragoto.forms import TextForm
-from django.core.management import call_command
-#from nettools import tasks
-#def external(request):
-   # inp = request.POST.get('param')
-    #out = run(sys.executable,['.//prog.py',int(inp)],shell=False,stdout=PIPE)
-    #return render(request,'result.html',{'data1':out})
-
-def post(self,request):
-    if request.method == 'POST':
-        form = TextForm(request.POST)
-        if form.is_valid():
-            data1 = form.cleaned_data['post']
-
-            context = another(data1)
-        return render(request, 'another.html', context)
-
-
 def home(request):
     N = 10  # число осциляторов
     K = 3  # K/N = параметр амплитуды связи
@@ -73,8 +54,8 @@ def home(request):
     return render(request, 'home.html', {'active_page': 'home.html', 'div_figure': html_fig})
 
 def another(request):
-    N_ = {{'data1'}}
-    K = 3
+    N_ = int(request.POST['N'])
+    K = int(request.POST['K'])
     interval_t = 100  # пространство i
     l = random.uniform(0, 2 * pi, N_)
     theta0 = []  # начальные фазы
