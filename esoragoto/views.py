@@ -13,14 +13,14 @@ from django.core.management import call_command
     #out = run(sys.executable,['.//prog.py',int(inp)],shell=False,stdout=PIPE)
     #return render(request,'result.html',{'data1':out})
 
-def result(request):
+def post(self,request):
     if request.method == 'POST':
         form = TextForm(request.POST)
         if form.is_valid():
-            data1 = form.cleaned_data
-            data2 = form.cleaned_data
+            data1 = form.cleaned_data['post']
+
             context = another(data1)
-            return render(request, 'result.html', context)
+        return render(request, 'another.html', context)
 
 
 def home(request):
@@ -73,7 +73,7 @@ def home(request):
     return render(request, 'home.html', {'active_page': 'home.html', 'div_figure': html_fig})
 
 def another(request):
-    N_ = request.POST('data')
+    N_ = {{'data1'}}
     K = 3
     interval_t = 100  # пространство i
     l = random.uniform(0, 2 * pi, N_)
