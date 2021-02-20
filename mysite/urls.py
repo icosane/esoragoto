@@ -22,5 +22,5 @@ urlpatterns = [
     path('', views.index, name='index'),
     path('graph', views.home, name='home'),
     path('another', views.another, name='another'),
-    path('admin/', admin.site.urls),
+    #path('admin/', admin.site.urls),
 ]
