@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 from esoragoto import views
-from django.views.generic import TemplateView
+#from django.views.generic import TemplateView
 
 urlpatterns = [
     path('', views.index, name='index'),
