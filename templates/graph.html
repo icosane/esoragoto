@@ -31,6 +31,15 @@
         width: 768px;
         margin: 0 auto;
       }
+      /* Chrome, Safari, Edge, Opera */
+      input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+      /* Firefox */
+      input[type=number] {
+        -moz-appearance: textfield;
+        }
       @media (min-width: 768px) {
         .bd-placeholder-img-lg {
           font-size: 3.5rem;
@@ -63,8 +72,8 @@
     <p class="lead">The above graph is a showcase, with number of oscillators(N) set to 10 and coupling parameter(K) set to 3. You can enter any other combination in the form below.</p>
     <form action="another" method="POST">
 {% csrf_token %}
-Input N: <input type="text" pattern="[0-9]+" name="N" required class="TextField" placeholder="N" />
-  Input K: <input type="text" pattern="[0-9]+" name="K" required class="TextField" placeholder="K" />
+Input N: <input type="number" pattern="[0-9]+" min="1" max="1000" name="N" required class="TextField" placeholder="N" />
+  Input K: <input type="number" pattern="[0-9]+" min="1" max="10" name="K" required class="TextField" placeholder="K" />
 <input type="Submit" class="btn btn-lg btn-secondary fw-bold border-black bg-white" name="Submit" value="Submit"/>
 </form>
     </p>
