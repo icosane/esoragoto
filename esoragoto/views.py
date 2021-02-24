@@ -103,3 +103,87 @@ def another(request):
     plt.close(fig)
 
     return render(request, 'another.html', {'div_figure': html_fig})
+
+def home2(request):
+    N = 10
+    m = 500
+    K = linspace(0,8,m)
+    interval_t = 1000  #пространство i
+
+    theta0 = random.uniform(0,2*pi,N)
+    omega = random.uniform(1,5,N)
+    def kuramoto(theta, t, omega, K, N_):
+        A, B = sin(theta), cos(theta)
+        return omega + (K / N_) * (B * sum(A) - A * sum(B))
+
+    t = linspace(0, 2, interval_t)  # время
+
+    L = []
+
+    for j in K:
+        theta = odeint(kuramoto,theta0,t,args=(omega,j,N))
+
+        S1 = [sum(cos(theta[i])) for i in range(interval_t)]
+        d1 = array([i ** 2 for i in S1])
+
+        S2 = [sum(sin(theta[i])) for i in range(interval_t)]
+        d2 = array([i ** 2 for i in S2])
+
+        r = (1.0 / N) * sqrt(d1 + d2)
+
+        x = r[len(r)-1]
+        L.append(x)
+
+    #построение графика
+    fig, ax = plt.subplots()
+    #for i in range(m-1):
+    ax.plot(K, L)
+    ax.set(xlabel='K', ylabel='r ∞')
+
+    ax.grid()
+    html_fig = mpld3.fig_to_html(fig, template_type='general')
+
+    plt.close(fig)
+    return render(request, 'graph2.html', {'div_figure': html_fig})
+
+def another2(request):
+    N = int(request.POST['N'])
+    m = 500
+    K = linspace(0,8,m)
+    interval_t = 1000  #пространство i
+
+    theta0 = random.uniform(0,2*pi,N)
+    omega = random.uniform(1,5,N)
+    def kuramoto(theta, t, omega, K, N_):
+        A, B = sin(theta), cos(theta)
+        return omega + (K / N_) * (B * sum(A) - A * sum(B))
+
+    t = linspace(0, 2, interval_t)  # время
+
+    L = []
+
+    for j in K:
+        theta = odeint(kuramoto,theta0,t,args=(omega,j,N))
+
+        S1 = [sum(cos(theta[i])) for i in range(interval_t)]
+        d1 = array([i ** 2 for i in S1])
+
+        S2 = [sum(sin(theta[i])) for i in range(interval_t)]
+        d2 = array([i ** 2 for i in S2])
+
+        r = (1.0 / N) * sqrt(d1 + d2)
+
+        x = r[len(r)-1]
+        L.append(x)
+
+    #построение графика
+    fig, ax = plt.subplots()
+    #for i in range(m-1):
+    ax.plot(K, L)
+    ax.set(xlabel='K', ylabel='r ∞')
+
+    ax.grid()
+    html_fig = mpld3.fig_to_html(fig, template_type='general')
+
+    plt.close(fig)
+    return render(request, 'another2.html', {'div_figure': html_fig})
