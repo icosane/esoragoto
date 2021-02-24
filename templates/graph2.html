@@ -64,7 +64,7 @@
      <i>The graph may not be fully representative at the moment. Right now it depends on page loading. Work in progress.</i></p>
 <form action="another2" method="POST">
 {% csrf_token %}
-Input N: <input type="text" name="N" class="TextField" placeholder="N" />
+Input N: <input type="text" pattern="[0-9]+" required name="N" class="TextField" placeholder="N" />
 <input type="Submit" class="btn btn-lg btn-secondary fw-bold border-black bg-white" name="Submit" value="Submit"/>
 </form>
 </p>
