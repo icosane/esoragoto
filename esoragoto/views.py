@@ -106,7 +106,7 @@ def another(request):
 
 def home2(request):
     N = 2
-    m = 500
+    m = 10
     K = linspace(0,8,m)
     interval_t = 1000  #пространство i
 
