@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '#%wu1i3d_tn_p+ej0o19ejb_o!_!t22n#paa7vlrp2dokms%0@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['esoragoto.herokuapp.com']
 
 
 # Application definition
@@ -123,9 +123,12 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = './static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+PROJECT_ROOT   =   os.path.join(os.path.abspath(__file__))
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
 # Activate Django-Heroku.
 django_heroku.settings(locals())
