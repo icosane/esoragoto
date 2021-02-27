@@ -24,5 +24,6 @@ urlpatterns = [
     path('graph2', views.home2, name='home2'),
     path('another', views.another, name='another'),
     path('another2', views.another2, name='another2'),
+    path('', include('pwa.urls')),
     #path('admin/', admin.site.urls),
 ]
