@@ -6,6 +6,8 @@ from django.shortcuts import render
 from esoragoto.forms import TextForm
 def index(request):
     return render(request, 'home.html')
+def offline(request):
+    return render(request, 'offline.html')
 def home(request):
     N = 10  # число осциляторов
     K = 3  # K/N = параметр амплитуды связи
