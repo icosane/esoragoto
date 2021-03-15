@@ -107,7 +107,7 @@ def another(request):
     return render(request, 'another.html', {'div_figure': html_fig})
 
 def home2(request):
-    N = 6
+    N = 10
     m = 50
     K = linspace(0,8,m)
     interval_t = 100  #пространство i
