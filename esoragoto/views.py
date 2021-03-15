@@ -108,9 +108,9 @@ def another(request):
 
 def home2(request):
     N = 6
-    m = 10
+    m = 50
     K = linspace(0,8,m)
-    interval_t = 1000  #пространство i
+    interval_t = 100  #пространство i
 
     theta0 = random.uniform(0,2*pi,N)
     omega = random.uniform(1,5,N)
@@ -150,9 +150,9 @@ def home2(request):
 
 def another2(request):
     N = int(request.POST['N'])
-    m = 500
+    m = 50
     K = linspace(0,8,m)
-    interval_t = 1000  #пространство i
+    interval_t = 100  #пространство i
 
     theta0 = random.uniform(0,2*pi,N)
     omega = random.uniform(1,5,N)
