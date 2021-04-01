@@ -26,9 +26,9 @@ from decouple import config
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['esoragoto.herokuapp.com']
 
 
 # Application definition
