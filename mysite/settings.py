@@ -28,7 +28,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['esoragoto.herokuapp.com','.unsplash.com','images.unsplash.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
