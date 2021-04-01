@@ -25,6 +25,7 @@ urlpatterns = [
     path('another', views.another, name='another'),
     path('another2', views.another2, name='another2'),
     path('offline', views.offline, name='offline'),
+    path('index_n', views.index_n, name='index_n'),
     path('', include('pwa.urls')),
     #path('admin/', admin.site.urls),
 ]
