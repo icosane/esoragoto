@@ -26,9 +26,9 @@ from decouple import config
 SECRET_KEY = config("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config("DEBUG")
+DEBUG = False
 
-ALLOWED_HOSTS = config("ALLOWED_HOSTS")
+ALLOWED_HOSTS = ['esoragoto.herokuapp.com']
 
 
 # Application definition
@@ -137,7 +137,7 @@ STATICFILES_DIRS = [
 django_heroku.settings(locals())
 
 #SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = config("SECURE_SSL_REDIRECT")
+SECURE_SSL_REDIRECT = True
 
 PWA_APP_NAME = 'esoragoto'
 PWA_APP_DESCRIPTION = "Kuramoto model web implementation"
