@@ -19,7 +19,7 @@ from esoragoto import views
 #from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('index', views.index, name='index'),
     path('graph', views.home, name='home'),
     path('graph2', views.home2, name='home2'),
     path('another', views.another, name='another'),
