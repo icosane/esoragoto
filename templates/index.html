@@ -139,9 +139,9 @@
                             {% csrf_token %}
                             Input N: <input type="number" pattern="[0-9]+" min="1" max="1000" name="N" required class="TextField" placeholder="N" />
                               Input K: <input type="number" pattern="[0-9]+" min="1" max="1000" name="K" required class="TextField" placeholder="K" />
-                            <div class="form-inline">
+                            <div class="btn-group" role="group">
                             <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="t=2" value="t=2"/>
-                            <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="t=0.1" value="t=0.1" formaction="graph_n11">
+                            <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="t=0.1" value="t=0.1" formaction="graph_n11"/>
                             </div>
                             </form> </div>
                     </div>   
@@ -164,8 +164,9 @@
                         <div class="container6"> <form action="graph_n2" method="POST">
                             {% csrf_token %}
                             Input N: <input type="number" pattern="[0-9]+" min="1" max="10" required name="N" class="TextField" placeholder="N" />
+                            <div class="btn-group" role="group">
                             <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="Submit" value="Submit"/>
-                            </form> </div>
+                            </form> </div></div>
                     </div>   
                     </div>
                 </div>
