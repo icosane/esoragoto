@@ -196,7 +196,7 @@ def another2(request):
 def index(request):
     N1 = 100  # число осциляторов
     K1 = 300  # K/N = параметр амплитуды связи
-    interval_t1 = 1000  # пространство i
+    interval_t1 = 100  # пространство t
     l1 = random.uniform(0, 2 * pi, N1)
     theta01 = []  # начальные фазы
     for i in l1:
