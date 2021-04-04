@@ -194,9 +194,9 @@ def another2(request):
 #<------------------------------------------------------------------------->
 
 def index(request):
-    N1 = 10  # число осциляторов
-    K1 = 3  # K/N = параметр амплитуды связи
-    interval_t1 = 100  # пространство i
+    N1 = 100  # число осциляторов
+    K1 = 300  # K/N = параметр амплитуды связи
+    interval_t1 = 1000  # пространство i
     l1 = random.uniform(0, 2 * pi, N1)
     theta01 = []  # начальные фазы
     for i in l1:
@@ -211,7 +211,7 @@ def index(request):
         A, B = sin(theta1), cos(theta1)
         return omega1 + (K1 / N1) * (B * sum(A) - A * sum(B))
 
-    t1 = linspace(0, 2, interval_t1)  # время
+    t1 = linspace(0, 0.1, interval_t1)  # время
 
     theta1 = odeint(kuramoto1, theta01, t1, args=(omega1, K1, N1))  # решение системы диф. уравнений 1 порядка
 
