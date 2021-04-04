@@ -225,7 +225,7 @@ def index(request):
     r1 = (1.0 / N1) * sqrt(d11 + d21)
 
     # построение графиков
-    fig1, (ax1, ax2) = plt.subplots(1, 2)
+    fig1, (ax1, ax2) = plt.subplots(1, 2, gridspec_kw={'width_ratios': [4, 4]}))
     for i in range(N1):
         ax1.plot(t1, sin(omega1[i] * t1 + theta1[:, i]))
     ax1.set(xlabel='t', ylabel='sin(ω(t)+θ)')
