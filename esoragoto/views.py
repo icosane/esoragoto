@@ -248,7 +248,7 @@ def index(request):
     interval_t2 = 100  #пространство i
     theta02 = random.uniform(0,2*pi,N2)
     omega2 = random.uniform(1,5,N2)
-
+    @numba.njit
     def kuramoto2(theta2, t2, omega2, K2, N2):
         A, B = sin(theta2), cos(theta2)
         return omega2 + (K2 / N2) * (B * sum(A) - A * sum(B))
