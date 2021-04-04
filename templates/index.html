@@ -13,6 +13,7 @@
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
+        <link href="{% static 'esoragoto/css/prism.css' %}" rel="stylesheet" />
         
         <!-- Bootstrap core CSS -->
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
@@ -42,6 +43,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#section3">order parameter</a>
                         </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#section4">how it works</a>
+                      </li>
                     </ul>
                 </div>
             </nav>
@@ -415,6 +419,62 @@
                 </div>
             </div>
         </section>
+        <section id="section4" style="background-color: #eeeeee;">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-12">
+                      <h2 data-pg-ia-hide>How it works</h2>
+                      <p data-pg-ia-hide>It is powered by Django so the main part that renders this page lives in a file called <i>views.py</i>. For graphs rendering is done using a library called mpld3, which converts matplotlib graph into canvas, which can be embedded on the page.</p>
+                      <pre><code class="language-python">
+                        N1 = 50  # число осциляторов
+                        K1 = 300  # K/N = параметр амплитуды связи
+                        interval_t1 = 100  # пространство t
+                        l1 = random.uniform(0, 2 * pi, N1)
+                        theta01 = []  # начальные фазы
+                        omega1 = random.uniform(1, 3, N1)  # частота
+                      </code>
+                    </pre>
+                    <p data-pg-ia-hide>The code above is how the initial parameters are set. Next we do is define the Kuramoto equation: </p>
+                    <pre><code class="language-python">
+                    def kuramoto1(theta1, t1, omega1, K1, N1):
+                    A, B = sin(theta1), cos(theta1)
+                    return omega1 + (K1 / N1) * (B * sum(A) - A * sum(B))
+                  </code></pre>
+                  <p data-pg-ia-hide>It is solved by using the <i>odeint</i> function. </p>
+                  <pre><code class="language-python">
+                  theta1 = odeint(kuramoto1, theta01, t1, args=(omega1, K1, N1)) 
+                </code></pre>
+                <p data-pg-ia-hide>The r(t) dependence is calculated like this:</p>
+                <pre><code class="language-python">
+                S11 = [sum(cos(theta1[i])) for i in range(interval_t1)]
+                d11 = array([i ** 2 for i in S11])
+
+                S21 = [sum(sin(theta1[i])) for i in range(interval_t1)]
+                d21 = array([i ** 2 for i in S21])
+
+                r1 = (1.0 / N1) * sqrt(d11 + d21)
+              </code></pre>
+                <p data-pg-ia-hide>And lastly plot the graphs:</p>
+                <pre><code class="language-python">
+                fig1, (ax1, ax2) = plt.subplots(1, 2, figsize=(15,6))
+                for i in range(N1):
+                    ax1.plot(t1, sin(omega1[i] * t1 + theta1[:, i]))
+                ax1.set(xlabel='t', ylabel='sin(ω(t)+θ)')
+
+                ax2.plot(t1, r1)
+                ax2.set(xlabel='t', ylabel='r (t)')
+
+                ax1.grid()
+                ax2.grid()
+                fig1.tight_layout()
+                html_fig1 = mpld3.fig_to_html(fig1, template_type='general')
+
+                plt.close(fig1)
+                </code></pre>
+                <p data-pg-ia-hide>There is more background stuff going on, but the gist of it is like this.</p>
+                  </div>
+              </div>
+          </div>
         <footer class=" bg-dark pb-3 pt-3 text-light">
             <div class="container">
                 <div class="row">
@@ -430,6 +490,8 @@
         <script type="text/javascript" src="{% static 'esoragoto/pgia/lib/pgia.js' %}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js" ></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css" />
+        <script src="{% static 'esoragoto/prism.js' %}"></script>
+        
         <script>
         lightGallery(document.getElementById('lightgallery'));
         </script>
