@@ -288,7 +288,7 @@ def graph_n1(request):
     omega = random.uniform(1, 3, N_)  # частота
 
     # omega = [1.1, 1.12, 1.13, 1.16, 1.18]
-
+    @numba.njit
     def kuramoto(theta, t, omega, K, N_):
         A, B = sin(theta), cos(theta)
         return omega + (K / N_) * (B * sum(A) - A * sum(B))
@@ -339,7 +339,7 @@ def graph_n11(request):
     omega = random.uniform(1, 3, N_)  # частота
 
     # omega = [1.1, 1.12, 1.13, 1.16, 1.18]
-
+    @numba.njit
     def kuramoto(theta, t, omega, K, N_):
         A, B = sin(theta), cos(theta)
         return omega + (K / N_) * (B * sum(A) - A * sum(B))
@@ -384,6 +384,7 @@ def graph_n2(request):
 
     theta0 = random.uniform(0,2*pi,N)
     omega = random.uniform(1,5,N)
+    @numba.njit
     def kuramoto(theta, t, omega, K, N_):
         A, B = sin(theta), cos(theta)
         return omega + (K / N_) * (B * sum(A) - A * sum(B))
