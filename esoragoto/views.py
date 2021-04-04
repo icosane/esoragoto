@@ -306,7 +306,7 @@ def graph_n1(request):
     r = (1.0 / N_) * sqrt(d1 + d2)
 
     # построение графиков
-    fig, (ax1, ax2) = plt.subplots(1, 2)
+    fig, (ax1, ax2) = plt.subplots(1, 2,figsize=(15,6))
     for i in range(N_):
         ax1.plot(t, sin(omega[i] * t + theta[:, i]))
     ax1.set(xlabel='t', ylabel='sin(ω(t)+θ)')
@@ -357,7 +357,7 @@ def graph_n11(request):
     r = (1.0 / N_) * sqrt(d1 + d2)
 
     # построение графиков
-    fig, (ax1, ax2) = plt.subplots(1, 2)
+    fig, (ax1, ax2) = plt.subplots(1, 2,figsize=(15,6))
     for i in range(N_):
         ax1.plot(t, sin(omega[i] * t + theta[:, i]))
     ax1.set(xlabel='t', ylabel='sin(ω(t)+θ)')
