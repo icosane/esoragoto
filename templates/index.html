@@ -12,6 +12,9 @@
         {% progressive_web_app_meta %}
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.4.0/css/lightgallery.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.4.0/js/lightgallery.js"></script>
         <!-- Bootstrap core CSS -->
         <link href="{% static 'esoragoto/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
         <!-- Custom styles for this template -->
@@ -87,7 +90,246 @@
             display: flex;
             align-items: center;
             justify-content: center }
+            #img1{
+            display:none;
+            } 
+            #img2{
+            display:none;
+            }
+            #img3{
+            display:none;
+            }
+            #img4{
+            display:none;
+            }
+            #img5{
+            display:none;
+            }
+            small {
+  font-size: 11px;
+  color: #999;
+  display: block;
+  margin-top: -10px
+}
+
+.cont {
+  text-align: center;
+}
+
+.page-head {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.page-head .lead {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.4;
+  margin-bottom: 50px;
+  margin-top: 0;
+}
+
+.btn {
+  -moz-user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857;
+  margin-bottom: 0;
+  padding: 6px 12px;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.btn-lg {
+  border-radius: 2px;
+  font-size: 18px;
+  line-height: 1.33333;
+  padding: 10px 16px;
+}
+
+.btn-primary:hover {
+  background-color: #fff;
+  color: #152836;
+}
+
+.btn-primary {
+  background-color: #152836;
+  border-color: #0e1a24;
+  color: #ffffff;
+}
+
+.btn-primary {
+  border-color: #eeeeee;
+  color: #eeeeee;
+  transition: color 0.1s ease 0s, background-color 0.15s ease 0s;
+}
+
+.page-head h1 {
+  font-size: 42px;
+  margin: 0 0 20px;
+  color: #FFF;
+  position: relative;
+  display: inline-block;
+}
+
+.page-head h1 .version {
+  bottom: 0;
+  color: #ddd;
+  font-size: 11px;
+  font-style: italic;
+  position: absolute;
+  width: 58px;
+  right: -58px;
+}
+
+.demo-gallery > ul {
+  margin-bottom: 0;
+  padding-left: 15px;
+}
+
+.demo-gallery > ul > li {
+  margin-bottom: 15px;
+  width: 180px;
+  display: inline-block;
+  margin-right: 15px;
+  list-style: outside none none;
+}
+
+.demo-gallery > ul > li a {
+  border: 3px solid #FFF;
+  border-radius: 3px;
+  display: block;
+  overflow: hidden;
+  position: relative;
+  float: left;
+}
+
+.demo-gallery > ul > li a > img {
+  -webkit-transition: -webkit-transform 0.15s ease 0s;
+  -moz-transition: -moz-transform 0.15s ease 0s;
+  -o-transition: -o-transform 0.15s ease 0s;
+  transition: transform 0.15s ease 0s;
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  height: 100%;
+  width: 100%;
+}
+
+.demo-gallery > ul > li a:hover > img {
+  -webkit-transform: scale3d(1.1, 1.1, 1.1);
+  transform: scale3d(1.1, 1.1, 1.1);
+}
+
+.demo-gallery > ul > li a:hover .demo-gallery-poster > img {
+  opacity: 1;
+}
+
+.demo-gallery > ul > li a .demo-gallery-poster {
+  background-color: rgba(0, 0, 0, 0.1);
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  -webkit-transition: background-color 0.15s ease 0s;
+  -o-transition: background-color 0.15s ease 0s;
+  transition: background-color 0.15s ease 0s;
+}
+
+.demo-gallery > ul > li a .demo-gallery-poster > img {
+  left: 50%;
+  margin-left: -10px;
+  margin-top: -10px;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transition: opacity 0.3s ease 0s;
+  -o-transition: opacity 0.3s ease 0s;
+  transition: opacity 0.3s ease 0s;
+}
+
+.demo-gallery > ul > li a:hover .demo-gallery-poster {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.demo-gallery .justified-gallery > a > img {
+  -webkit-transition: -webkit-transform 0.15s ease 0s;
+  -moz-transition: -moz-transform 0.15s ease 0s;
+  -o-transition: -o-transform 0.15s ease 0s;
+  transition: transform 0.15s ease 0s;
+  -webkit-transform: scale3d(1, 1, 1);
+  transform: scale3d(1, 1, 1);
+  height: 100%;
+  width: 100%;
+}
+
+.demo-gallery .justified-gallery > a:hover > img {
+  -webkit-transform: scale3d(1.1, 1.1, 1.1);
+  transform: scale3d(1.1, 1.1, 1.1);
+}
+
+.demo-gallery .justified-gallery > a:hover .demo-gallery-poster > img {
+  opacity: 1;
+}
+
+.demo-gallery .justified-gallery > a .demo-gallery-poster {
+  background-color: rgba(0, 0, 0, 0.1);
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  -webkit-transition: background-color 0.15s ease 0s;
+  -o-transition: background-color 0.15s ease 0s;
+  transition: background-color 0.15s ease 0s;
+}
+
+.demo-gallery .justified-gallery > a .demo-gallery-poster > img {
+  left: 50%;
+  margin-left: -10px;
+  margin-top: -10px;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  -webkit-transition: opacity 0.3s ease 0s;
+  -o-transition: opacity 0.3s ease 0s;
+  transition: opacity 0.3s ease 0s;
+}
+
+.demo-gallery .justified-gallery > a:hover .demo-gallery-poster {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.demo-gallery .video .demo-gallery-poster img {
+  height: 48px;
+  margin-left: -24px;
+  margin-top: -24px;
+  opacity: 0.8;
+  width: 48px;
+}
+
+.demo-gallery.dark > ul > li a {
+  border: 3px solid #04070a;
+}
           </style>
+          <!-- Script -->
+        
+        <script type="text/javascript">
+        $(document).ready(function(){
+        $("#img1").fadeIn(4000);
+        $("#img2").fadeIn(4000);
+        $("#img3").fadeIn(4000);
+        $("#img4").fadeIn(4000);
+        $("#img5").fadeIn(4000);
+        });
+        </script>
         <section style="padding-top: 120px; padding-bottom: 120px; min-height: 300px; color: #ffffff; background-size: cover; background-repeat: no-repeat; background-image: url('https://images.unsplash.com/photo-1579546929662-711aa81148cf?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjIwOTIyfQ');" id="hero" data-pg-ia-scene='{"dir":"a","s":"custom","s_t":"start","s_s":"end","e_t":"end","e_s":"start","l":[{"a":{"l":[{"t":"","l":[{"t":"tween","p":0,"d":1,"l":{"pgia":{"play":"HideContent"}}},{"t":"tween","p":1,"d":8,"l":{"pgia":{"play":"ShowContent","once":1}}},{"t":"tween","p":9,"d":1,"l":{"pgia":{"play":"HideContent"}}}]}]},"p":"scroll","sc_dir":"up_down","rep":"true"}],"smooth":"0"}' data-pg-ia='{"l":[{"name":"ShowContent","trg":"no","a":{"l":[{"t":"h1,h2,p","l":[{"t":"tween","p":0,"d":1,"s":0.5,"l":{"autoAlpha":1}}]}],"desc":"Customize this animation to show the content when the section comes into view."}},{"name":"HideContent","trg":"no","a":{"l":[{"t":"","l":[]}],"desc":"Customize to hide the content when the section goes out of view. Not needed if you want to reveal the content only once. If hiding content, also remove Show Once in Scroll Scene animation."}}]}' data-pg-ia-apply="$section">
             <div class="container">
                 <div class="row">
@@ -110,7 +352,7 @@
                             \end{equation} 
                          </p>
                          <p data-pg-ia-hide class="font-italic" style="text-align: center">   Where \(\theta_{i} \) is the phase of oscillator i, \(\omega_{i} \) is the natural frequency of oscillator i, N is the total number of oscillators in the system and K is a constant referred to as the coupling constant. </p>
-                         <img style="float: left;" src="{% static 'images/KRgraph.png' %}">
+                         <img id="img1" style="float: left;" src="{% static 'images/KRgraph.png' %}">
                          <p data-pg-ia-hide>The graph plots r as we steadily increase the value of K over a long time period in a typical simulation where n → ∞. For small Kc, r remains small as the oscillators move near to their own natural frequencies. As K increases past Kc, there is a sudden increase in r as the oscillators 'snap' together and enter synchrony </p>
                          <p data-pg-ia-hide > It is often useful to consider the 'collective rhythm' of the system, or the 'centre point' of the phases of the oscillators as depicted on the unit circle in the complex plane. This value, the complex order parameter, is defined as:
                             \begin{equation}
@@ -118,7 +360,7 @@
                             \end{equation} 
                          </p>
                          <p data-pg-ia-hide class="font-italic" style="text-align: center"> Where N and \(\theta_{i} \) are defined as before, \(\psi \) is the argument of the order parameter and r is the modulus of the order parameter.</p>
-                         <img style="float: left;" src="{% static 'images/strogatzop.png' %}">
+                         <img id="img2" style="float: left;" src="{% static 'images/strogatzop.png' %}">
                          <p data-pg-ia-hide>When K > Kc the r very quickly tends to 1, indicating that the system exhibits synchronous behaviour. When K < Kc, even though the oscillators begin close together, r drops rapidly. In this case we see a lot of random variation of r as the oscillators may naturally move closer together at periods of time without synchronous behaviour.</p>
 
                     </div>
@@ -167,8 +409,40 @@
                             <div class="btn-group" role="group">
                             <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="Submit" value="Submit"/>
                             </form> </div></div>
-                    </div>   
-                    </div>
+                    </div> 
+                    <p data-pg-ia-hide>Because the server unfortunately cannot handle big calculations, and will most likely crash on large number of oscillators, here are some pre-compiled graphs for 10, 100 and 1000 oscillators.</p> 
+                    <div class="demo-gallery">
+                        <ul id="lightgallery">
+                          <li data-responsive="{% static 'images/Figure_1.png' %}" data-src="{% static 'images/Figure_1.png' %}"
+                          data-sub-html="<h2>Number of oscillators is 10</h2><p></p>" data-pinterest-text="Pin it" data-tweet-text="share on twitter ">
+                            <a href="">
+                              <img class="img-responsive" src="{% static 'images/Figure_1.png' %}">
+                              <div class="demo-gallery-poster">
+                                <img src="https://sachinchoolur.github.io/lightGallery/static/img/zoom.png">
+                              </div>
+                            </a>
+                          </li>
+                          <li data-responsive="{% static 'images/Figure_2.png' %}" data-src="{% static 'images/Figure_2.png' %}"
+                          data-sub-html="<h2>Number of oscillators is 100</h2><p></p>" data-pinterest-text="Pin it" data-tweet-text="share on twitter ">
+                            <a href="">
+                              <img class="img-responsive" src="{% static 'images/Figure_2.png' %}">
+                              <div class="demo-gallery-poster">
+                                <img src="https://sachinchoolur.github.io/lightGallery/static/img/zoom.png">
+                              </div>
+                            </a>
+                          </li>
+                          <li data-responsive="{% static 'images/Figure_3.png' %}" data-src="{% static 'images/Figure_3.png' %}"
+                          data-sub-html="<h2>Number of oscillators is 1000</h2><p></p>" data-pinterest-text="Pin it" data-tweet-text="share on twitter ">
+                            <a href="">
+                              <img class="img-responsive" src="{% static 'images/Figure_3.png' %}">
+                              <div class="demo-gallery-poster">
+                                <img src="https://sachinchoolur.github.io/lightGallery/static/img/zoom.png">
+                              </div>
+                            </a>
+                          </li>
+                        </ul>
+                        
+                    </div>  
                 </div>
             </div>
         </section>
@@ -185,5 +459,16 @@
         <script type="text/javascript" src="{% static 'esoragoto/assets/js/jquery.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'esoragoto/bootstrap/js/bootstrap.min.css' %}"></script>
         <script type="text/javascript" src="{% static 'esoragoto/pgia/lib/pgia.js' %}"></script>
+        <script src="https://cdn.rawgit.com/sachinchoolur/lightgallery.js/master/dist/js/lightgallery.js"></script>
+        <script src="https://cdn.rawgit.com/sachinchoolur/lg-pager.js/master/dist/lg-pager.js"></script>
+        <script src="https://cdn.rawgit.com/sachinchoolur/lg-autoplay.js/master/dist/lg-autoplay.js"></script>
+        <script src="https://cdn.rawgit.com/sachinchoolur/lg-fullscreen.js/master/dist/lg-fullscreen.js"></script>
+        <script src="https://cdn.rawgit.com/sachinchoolur/lg-zoom.js/master/dist/lg-zoom.js"></script>
+        <script src="https://cdn.rawgit.com/sachinchoolur/lg-hash.js/master/dist/lg-hash.js"></script>
+        <script src="https://cdn.rawgit.com/sachinchoolur/lg-share.js/master/dist/lg-share.js"></script>
+        <script>
+        lightGallery(document.getElementById('lightgallery'));
+        </script>
+        
     </body>
 </html>
