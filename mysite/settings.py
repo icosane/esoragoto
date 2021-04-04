@@ -137,7 +137,7 @@ STATICFILES_DIRS = [
 django_heroku.settings(locals())
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = True
+SECURE_SSL_REDIRECT = False
 
 PWA_APP_NAME = 'esoragoto'
 PWA_APP_DESCRIPTION = "Kuramoto model web implementation"

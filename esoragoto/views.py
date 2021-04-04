@@ -2,6 +2,7 @@ from numpy import *
 from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 import mpld3
+import numba
 from django.shortcuts import render
 from esoragoto.forms import TextForm
 
@@ -206,7 +207,7 @@ def index(request):
     omega1 = random.uniform(1, 3, N1)  # частота
 
     #omega = [1.1, 1.12, 1.13, 1.16, 1.18]
-
+    @numba.njit
     def kuramoto1(theta1, t1, omega1, K1, N1):
         A, B = sin(theta1), cos(theta1)
         return omega1 + (K1 / N1) * (B * sum(A) - A * sum(B))
