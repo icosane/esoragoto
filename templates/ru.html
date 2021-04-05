@@ -354,7 +354,7 @@
                          {{ div_figure1|safe }}
                     </div>
                     <div class="container1">
-                        <div class="container6"> <form action="graph_n1" method="POST">
+                        <div class="container6"> <form action="graph_n1ru" method="POST">
                             {% csrf_token %}
                             Введите N: <input type="number" pattern="[0-9]+" min="1" max="1000" name="N" required class="TextField" placeholder="0-1000" />
                               Введите K: <input type="number" pattern="[0-9]+" min="1" max="1000" name="K" required class="TextField" placeholder="0-1000" />
@@ -379,7 +379,7 @@
                          {{ div_figure2|safe }}
                     </div>
                     <div class="container1">
-                        <div class="container6"> <form action="graph_n2" method="POST">
+                        <div class="container6"> <form action="graph_n2ru" method="POST">
                             {% csrf_token %}
                             Введите N: <input type="number" pattern="[0-9]+" min="1" max="1000" required name="N" class="TextField" placeholder="0-1000" />
                             Введите шаг параметра связи: <input type="number" step="any" pattern="[0-9]+" min="0" max="1000" name="m" required class="0-1000" placeholder="0-1000" />
