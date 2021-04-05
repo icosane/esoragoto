@@ -461,7 +461,7 @@ def graph_n1(request):
 def graph_n2(request):
     N = int(request.POST['N'])
     m = float(request.POST['m'])
-    t__ = int(request.POST['t'])
+    t__ = float(request.POST['t'])
     K = linspace(0,t__,m)
     interval_t = 100  #пространство i
 
