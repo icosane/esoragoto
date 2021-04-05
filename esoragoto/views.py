@@ -409,6 +409,7 @@ def graph_n1(request):
     N_ = int(request.POST['N'])
     K = int(request.POST['K'])
     interval_t = 100  # пространство i
+    t_ = float(request.POST['t'])
     l = random.uniform(0, 2 * pi, N_)
     theta0 = []  # начальные фазы
     for i in l:
@@ -423,7 +424,7 @@ def graph_n1(request):
         A, B = sin(theta), cos(theta)
         return omega + (K / N_) * (B * sum(A) - A * sum(B))
 
-    t = linspace(0, 2, interval_t)  # время
+    t = linspace(0, t_, interval_t)  # время
 
     theta = odeint(kuramoto, theta0, t, args=(omega, K, N_))  # решение системы диф. уравнений 1 порядка
 
@@ -454,59 +455,12 @@ def graph_n1(request):
 
     return render(request, 'graph_n1.html', {'div_figure': html_fig})
 
-def graph_n11(request):
-    N_ = int(request.POST['N'])
-    K = int(request.POST['K'])
-    interval_t = 100  # пространство i
-    l = random.uniform(0, 2 * pi, N_)
-    theta0 = []  # начальные фазы
-    for i in l:
-        theta0.append('%.1f' % i)  # количество точек после запятой
 
-    # omega = int2.99
-    omega = random.uniform(1, 3, N_)  # частота
-
-    # omega = [1.1, 1.12, 1.13, 1.16, 1.18]
-    @numba.njit
-    def kuramoto(theta, t, omega, K, N_):
-        A, B = sin(theta), cos(theta)
-        return omega + (K / N_) * (B * sum(A) - A * sum(B))
-
-    t = linspace(0, 0.1, interval_t)  # время
-
-    theta = odeint(kuramoto, theta0, t, args=(omega, K, N_))  # решение системы диф. уравнений 1 порядка
-
-    # вычисление r(t)
-    S1 = [sum(cos(theta[i])) for i in range(interval_t)]
-    d1 = array([i ** 2 for i in S1])
-
-    S2 = [sum(sin(theta[i])) for i in range(interval_t)]
-    d2 = array([i ** 2 for i in S2])
-
-    r = (1.0 / N_) * sqrt(d1 + d2)
-
-    # построение графиков
-    fig, (ax1, ax2) = plt.subplots(1, 2,figsize=(15,6))
-    for i in range(N_):
-        ax1.plot(t, sin(omega[i] * t + theta[:, i]))
-    ax1.set(xlabel='t', ylabel='sin(ω(t)+θ)')
-
-    ax2.plot(t, r)
-    ax2.set(xlabel='t', ylabel='r (t)')
-
-    ax1.grid()
-    ax2.grid()
-    fig.tight_layout()
-    html_fig = mpld3.fig_to_html(fig, template_type='general')
-
-    plt.close(fig)
-
-    return render(request, 'graph_n1.html', {'div_figure': html_fig})
 
 
 def graph_n2(request):
     N = int(request.POST['N'])
-    m = 50
+    m = int(request.POST['m'])
     K = linspace(0,8,m)
     interval_t = 100  #пространство i
 

@@ -348,7 +348,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h2 data-pg-ia-hide>Time dependence of signals</h2>
-                        <p data-pg-ia-hide>The graph below is showcasing synchronization of 100 oscillators with coupling parameter(K) set to 300. You can enter any other combination in the form below. Some bugs may occur, so if they happen please reload the page. Different buttons for different time periods(t=2 or 0.1), so choose the one you like.</p>
+                        <p data-pg-ia-hide>The graph below is showcasing synchronization of 100 oscillators with coupling parameter(K) set to 300. You can enter any other combination in the form below. Some bugs may occur, so if they happen please reload the page. </p>
                     <div class="col-md-12, container6" id="fig_container">
                          {{ div_figure1|safe }}
                     </div>
@@ -357,10 +357,11 @@
                             {% csrf_token %}
                             Input N: <input type="number" pattern="[0-9]+" min="1" max="1000" name="N" required class="TextField" placeholder="N" />
                               Input K: <input type="number" pattern="[0-9]+" min="1" max="1000" name="K" required class="TextField" placeholder="K" />
-                            <div class="btn-group" role="group">
-                            <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="t=2" value="t=2"/>
-                            <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="t=0.1" value="t=0.1" formaction="graph_n11"/>
-                            </div>
+                              Input t: <input type="number"step="any" pattern="[0-9]+" min="0" max="1000" name="t" required class="TextField" placeholder="t" />
+                            
+                            <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="Submit" value="Submit"/>
+                            
+                            
                             </form> </div>
                     </div>   
                     
@@ -374,7 +375,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h2 data-pg-ia-hide>Order parameter</h2>
-                        <p data-pg-ia-hide>The graph is a showcase, with number of oscillators(N) set to 10. You can enter any other number as long as it's 1-10 in the form below. The coupling parameter step is 50.</p>
+                        <p data-pg-ia-hide>The graph is a showcase, with number of oscillators(N) set to 10. You can enter any other number as long as it's 1-10 in the form below. The coupling parameter step can be also entered below. Keep in mind that if the entered coupling parameter is too high the page will load very slowly, or may even crash.</p>
                     <div class="col-md-12 container6" id="fig_container">
                          {{ div_figure2|safe }}
                     </div>
@@ -382,6 +383,7 @@
                         <div class="container6"> <form action="graph_n2" method="POST">
                             {% csrf_token %}
                             Input N: <input type="number" pattern="[0-9]+" min="1" max="10" required name="N" class="TextField" placeholder="N" />
+                            Input coupling parameter step: <input type="number" step="any" pattern="[0-9]+" min="0" max="1000" name="m" required class="TextField" placeholder="m" />
                             <div class="btn-group" role="group">
                             <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="Submit" value="Submit"/>
                             </form> </div></div>
