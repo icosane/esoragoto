@@ -356,9 +356,9 @@
                     <div class="container1">
                         <div class="container6"> <form action="graph_n1" method="POST">
                             {% csrf_token %}
-                            Введите N: <input type="number" pattern="[0-9]+" min="1" max="1000" name="N" required class="TextField" placeholder="N" />
-                              Введите K: <input type="number" pattern="[0-9]+" min="1" max="1000" name="K" required class="TextField" placeholder="K" />
-                              Input t: <input type="number"step="any" pattern="[0-9]+" min="0" max="1000" name="t" required class="TextField" placeholder="t" />
+                            Введите N: <input type="number" pattern="[0-9]+" min="1" max="1000" name="N" required class="TextField" placeholder="0-1000" />
+                              Введите K: <input type="number" pattern="[0-9]+" min="1" max="1000" name="K" required class="TextField" placeholder="0-1000" />
+                              Input t: <input type="number"step="any" pattern="[0-9]+" min="0" max="1000" name="t" required class="TextField" placeholder="0.0-1000.0" />
                               <div class="btn-group" role="group">
                             <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="Submit" value="Выполнить"/>
                             </form> </div></div>
@@ -374,16 +374,16 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h2 data-pg-ia-hide>Параметр порядка</h2>
-                        <p data-pg-ia-hide>График является примером, на котором количество осцилляторов(N) установлено в 10. Имейте в виду, что если введенный параметр связи слишком большой, то страница будет загружаться очень медленно, или даже может упасть с ошибкой.</p>
+                        <p data-pg-ia-hide>График является примером, на котором количество осцилляторов(N) установлено в 10. Имейте в виду, что если введенный параметр связи слишком большой, то страница будет загружаться очень медленно, или даже может упасть с ошибкой. </p>
                     <div class="col-md-12 container6" id="fig_container">
                          {{ div_figure2|safe }}
                     </div>
                     <div class="container1">
                         <div class="container6"> <form action="graph_n2" method="POST">
                             {% csrf_token %}
-                            Введите N: <input type="number" pattern="[0-9]+" min="1" max="1000" required name="N" class="TextField" placeholder="N" />
-                            Введите шаг параметра связи: <input type="number" step="any" pattern="[0-9]+" min="0" max="1000" name="m" required class="TextField" placeholder="m" />
-                            Введите t: <input type="number" step="any" pattern="[0-9]+" min="0" max="1000" name="t" required class="TextField" placeholder="t" />
+                            Введите N: <input type="number" pattern="[0-9]+" min="1" max="1000" required name="N" class="TextField" placeholder="0-1000" />
+                            Введите шаг параметра связи: <input type="number" step="any" pattern="[0-9]+" min="0" max="1000" name="m" required class="0-1000" placeholder="0-1000" />
+                            Введите t: <input type="number" step="any" pattern="[0-9]+" min="0" max="1000" name="t" required class="TextField" placeholder="0-1000" />
                             
                             <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="Submit" value="Выполнить"/>
                             </form> </div>
