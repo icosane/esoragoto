@@ -382,6 +382,8 @@
                             {% csrf_token %}
                             Введите N: <input type="number" pattern="[0-9]+" min="1" max="10" required name="N" class="TextField" placeholder="N" />
                             Введите шаг параметра связи: <input type="number" step="any" pattern="[0-9]+" min="0" max="1000" name="m" required class="TextField" placeholder="m" />
+                            Введите t: <input type="number" step="any" pattern="[0-9]+" min="0" max="1000" name="t" required class="TextField" placeholder="t" />
+                            <div class="btn-group" role="group">
                             <div class="btn-group" role="group">
                             <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="Submit" value="Выполнить"/>
                             </form> </div></div>

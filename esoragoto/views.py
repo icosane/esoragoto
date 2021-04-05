@@ -460,8 +460,9 @@ def graph_n1(request):
 
 def graph_n2(request):
     N = int(request.POST['N'])
-    m = int(request.POST['m'])
-    K = linspace(0,8,m)
+    m = float(request.POST['m'])
+    t__ = int(request.POST['t'])
+    K = linspace(0,t__,m)
     interval_t = 100  #пространство i
 
     theta0 = random.uniform(0,2*pi,N)
