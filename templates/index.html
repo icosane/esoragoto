@@ -382,7 +382,7 @@
                     <div class="container1">
                         <div class="container6"> <form action="graph_n2" method="POST">
                             {% csrf_token %}
-                            Input N: <input type="number" pattern="[0-9]+" min="1" max="10" required name="N" class="TextField" placeholder="N" />
+                            Input N: <input type="number" pattern="[0-9]+" min="1" max="1000" required name="N" class="TextField" placeholder="N" />
                             Input coupling parameter step: <input type="number" step="any" pattern="[0-9]+" min="0" max="1000" name="m" required class="TextField" placeholder="m" />
                             Input t: <input type="number" step="any" pattern="[0-9]+" min="0" max="1000" name="t" required class="TextField" placeholder="t" />
                             <div class="btn-group" role="group">
