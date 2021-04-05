@@ -349,7 +349,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h2 data-pg-ia-hide>Зависимость сигналов от времени</h2>
-                        <p data-pg-ia-hide>На графике ниже показана синхронизация 100 генераторов с параметром связи(K), равным 300. Вы можете ввести любую другую комбинацию в форме, приведенной ниже. Могут возникнуть некоторые ошибки, поэтому если они произойдут, пожалуйста, перезагрузите страницу. Имейте в виду, что если введенный параметр связи слишком большой, то страница будет загружаться очень медленно, или даже может упасть с ошибкой. </p>
+                        <p data-pg-ia-hide>На графике ниже показана синхронизация 100 генераторов с параметром связи(K), равным 300. Вы можете ввести любую другую комбинацию в форме, приведенной ниже. Могут возникнуть некоторые ошибки, поэтому если они произойдут, пожалуйста, перезагрузите страницу. </p>
                     <div class="col-md-12, container6" id="fig_container">
                          {{ div_figure1|safe }}
                     </div>
@@ -359,8 +359,9 @@
                             Введите N: <input type="number" pattern="[0-9]+" min="1" max="1000" name="N" required class="TextField" placeholder="N" />
                               Введите K: <input type="number" pattern="[0-9]+" min="1" max="1000" name="K" required class="TextField" placeholder="K" />
                               Input t: <input type="number"step="any" pattern="[0-9]+" min="0" max="1000" name="t" required class="TextField" placeholder="t" />
+                              <div class="btn-group" role="group">
                             <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="Submit" value="Выполнить"/>
-                            </form> </div>
+                            </form> </div></div>
                     </div>   
                     
                     </div>
@@ -373,7 +374,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h2 data-pg-ia-hide>Параметр порядка</h2>
-                        <p data-pg-ia-hide>График является примером, на котором количество осцилляторов(N) установлено в 10. Вы можете ввести любое другое число из диапазона 1-10 в форме приведенной ниже. </p>
+                        <p data-pg-ia-hide>График является примером, на котором количество осцилляторов(N) установлено в 10. Имейте в виду, что если введенный параметр связи слишком большой, то страница будет загружаться очень медленно, или даже может упасть с ошибкой.</p>
                     <div class="col-md-12 container6" id="fig_container">
                          {{ div_figure2|safe }}
                     </div>
@@ -383,7 +384,6 @@
                             Введите N: <input type="number" pattern="[0-9]+" min="1" max="10" required name="N" class="TextField" placeholder="N" />
                             Введите шаг параметра связи: <input type="number" step="any" pattern="[0-9]+" min="0" max="1000" name="m" required class="TextField" placeholder="m" />
                             Введите t: <input type="number" step="any" pattern="[0-9]+" min="0" max="1000" name="t" required class="TextField" placeholder="t" />
-                            <div class="btn-group" role="group">
                             <div class="btn-group" role="group">
                             <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="Submit" value="Выполнить"/>
                             </form> </div></div>

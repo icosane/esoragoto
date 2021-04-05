@@ -358,11 +358,11 @@
                             Input N: <input type="number" pattern="[0-9]+" min="1" max="1000" name="N" required class="TextField" placeholder="N" />
                               Input K: <input type="number" pattern="[0-9]+" min="1" max="1000" name="K" required class="TextField" placeholder="K" />
                               Input t: <input type="number"step="any" pattern="[0-9]+" min="0" max="1000" name="t" required class="TextField" placeholder="t" />
-                            
+                              <div class="btn-group" role="group">
                             <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="Submit" value="Submit"/>
                             
                             
-                            </form> </div>
+                            </form> </div></div>
                     </div>   
                     
                     </div>
@@ -375,7 +375,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h2 data-pg-ia-hide>Order parameter</h2>
-                        <p data-pg-ia-hide>The graph is a showcase, with number of oscillators(N) set to 10. You can enter any other number as long as it's 1-10 in the form below. The coupling parameter step can be also entered below. Keep in mind that if the entered coupling parameter is too high the page will load very slowly, or may even crash.</p>
+                        <p data-pg-ia-hide>The graph is a showcase, with number of oscillators(N) set to 10. The coupling parameter step can be also entered below. Keep in mind that if the entered coupling parameter is too high the page will load very slowly, or may even crash.</p>
                     <div class="col-md-12 container6" id="fig_container">
                          {{ div_figure2|safe }}
                     </div>
