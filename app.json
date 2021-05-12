@@ -1,0 +1,7 @@
+{
+    "name": "Kuramoto model",
+    "description": "A web app for the numerical study of synchronization in a network of Kuramoto phase oscillators",
+    "repository": "https://github.com/icosane/esoragoto",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Django_Lightbulb_Icon.svg/1024px-Django_Lightbulb_Icon.svg.png",
+    "keywords": ["django", "kuramoto", "dynamic"]
+  }
