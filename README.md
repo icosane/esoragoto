@@ -23,6 +23,3 @@ Provides:
 ### Support or Contact
 
 If something doesn't work, update the requirements and pray that it will work. I actually didn't test the heroku deploy button. ヾ(•ω•`)o 
-
-
-### This readme is also available as a [standalone page.](https://icosane.github.io/esoragoto/)
