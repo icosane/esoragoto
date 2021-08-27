@@ -11,7 +11,7 @@ The Kuramoto model is a mathematical model used to describe synchronization. Mor
 
 ### Deploy your own instance of this site using Heroku
 ### [Heroku Quick Deploy](https://heroku.com/about)
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/icosane/esoragoto)
 
 *Note: Requires a (free) Heroku account*
 
