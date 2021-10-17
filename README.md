@@ -4,7 +4,7 @@
 It runs on Heroku and is using mpld3, a web wrapper for matplotlib, which allows you to build graphs in real time.  
 Using this repository you can deploy your own instance and customize it to your liking.
 
-### Deploy your own instance of this site using Heroku
+## Deploy your own instance of this site using Heroku
 ### [Heroku Quick Deploy](https://heroku.com/about)
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/icosane/esoragoto)
 
