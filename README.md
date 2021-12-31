@@ -1,7 +1,7 @@
 ## About
 
-[This site](https://esoragoto.herokuapp.com/) was developed as my course work, and it deals with the Kuramoto's model of synchronization.  
-It runs on Heroku and is using mpld3, a web wrapper for matplotlib, which allows you to build graphs in real time.  
+[This site](https://esoragoto.herokuapp.com/) was developed as my course work, and it deals with modeling the Kuramoto's model.  
+It runs on Heroku and is using mpld3, a web wrapper for matplotlib, which allows you to model graphs in real time.  
 Using this repository you can deploy your own instance and customize it to your liking.
 
 ## Deploy your own instance of this site using Heroku
