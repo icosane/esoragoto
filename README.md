@@ -15,10 +15,10 @@ Provides:
 - Free HTTPS url (https://\<your app name\>.herokuapp.com)
 - Downtime after periods of inactivity
 
-### Where to check the code without all the Django stuff?
+## Where to check the code without all the Django stuff?
 https://github.com/icosane/aqualilac
 
 
-### Support or Contact
+## Support or Contact
 
 If something doesn't work, update the requirements and pray that it will work. I actually didn't test the heroku deploy button. ヾ(•ω•`)o 
