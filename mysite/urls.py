@@ -13,19 +13,14 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
+
 from django.urls import path,include
 from esoragoto import views
-#from django.views.generic import TemplateView
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('ru', views.ru, name='ru'),
     path('offline', views.offline, name='offline'),
     path('graph_n1', views.graph_n1, name='graph_n1'),
     path('graph_n2', views.graph_n2, name='graph_n2'),
-    path('graph_n1ru', views.graph_n1ru, name='graph_n1ru'),
-    path('graph_n2ru', views.graph_n2ru, name='graph_n2ru'),
-    path('', include('pwa.urls')),
     #path('admin/', admin.site.urls),
 ]
