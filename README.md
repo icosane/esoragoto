@@ -18,6 +18,8 @@ Provides:
 ## Where to check the code without all the Django stuff?
 https://github.com/icosane/aqualilac
 
+## Development version:
+https://ywegfuygw.herokuapp.com/
 
 ## Support or Contact
 
