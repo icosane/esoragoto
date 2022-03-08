@@ -92,7 +92,7 @@ def index(request):
 
         r = (1.0 / N2) * sqrt(rt2(kuramoto,theta02,t,omega2,j,N2,interval_t))
 
-        x = r[len(r)-1]
+        x = sum(r[(len(r)//2):])/(interval_t//2)
         L.append(x)
     fig2, ax3 = plt.subplots()
     ax3.plot(K2, L)
@@ -157,7 +157,7 @@ def graph_n2(request):
     for j in K:
         r = (1.0 / N) * sqrt(rt2(kuramoto,theta0,t,omega,j,N,interval_t))
 
-        x = r[len(r)-1]
+        x = sum(r[(len(r)//2):])/(interval_t//2)
         L.append(x)
 
     #построение графика
