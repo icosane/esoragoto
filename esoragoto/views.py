@@ -3,11 +3,22 @@ from scipy.integrate import odeint
 import matplotlib.pyplot as plt
 import mpld3
 import numba
+import os
+from django.conf import settings
+from django.http import HttpResponse, Http404
 from django.shortcuts import render
 interval_t = 100
 
 def offline(request):
     return render(request, 'offline.html')
+
+def download(request):    
+    file_path = os.path.join(settings.MEDIA_ROOT, 'wef2.py')    
+    if os.path.exists(file_path):    
+        with open(file_path, 'rb') as fh:    
+            response = HttpResponse(fh.read(), content_type="application/py.python")    
+            response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)    
+            return response
 
 @numba.njit
 def kuramoto(theta, t, omega, K, N):

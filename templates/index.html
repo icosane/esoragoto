@@ -8,13 +8,13 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>esoragoto</title>
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
-        <link href="{% static 'esoragoto/css/prism.css' %}" rel="stylesheet" />
+        <script type="text/javascript" src="{% static 'esoragoto/polyfill.min.js' %}"></script>
+        <script id="MathJax-script" async src="{% static 'esoragoto/es5/tex-mml-chtml.js' %}"></script>
+        <script type="text/javascript" src="{% static 'esoragoto/jquery.min.js' %}"></script>
+        <link src="{% static 'esoragoto/css/prism.css' %}" rel="stylesheet" />
         
         <!-- Bootstrap core CSS -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/4.6.1/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="{% static 'esoragoto/bootstrap/css/bootstrap.min.css' %}" >
         <!-- Custom styles for this template -->
         <script>/* Pinegrow Interactions, do not remove */ try{if(!document.documentElement.hasAttribute('data-pg-ia-disabled')) { var style = document.createElement('style');var pgcss='html:not(.pg-ia-no-preview) [data-pg-ia-hide=""] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show=""] {opacity:1;visibility:visible;display:block;}';if(document.documentElement.hasAttribute('data-pg-id')?document.documentElement.hasAttribute('data-pg-mobile'):(screen.width<1000&&screen.height<1000)){pgcss+='html:not(.pg-ia-no-preview) [data-pg-ia-hide="mobile"] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show="mobile"] {opacity:1;visibility:visible;display:block;}';}else{pgcss+='html:not(.pg-ia-no-preview) [data-pg-ia-hide="desktop"] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show="desktop"] {opacity:1;visibility:visible;display:block;}';}style.innerHTML=pgcss;document.querySelector('head').appendChild(style);}}catch(e){console&&console.log(e);}</script>
         <link rel="stylesheet" href="{% static 'esoragoto/css/style.css' %}">
@@ -37,6 +37,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#section3">order parameter</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#section4">adaptive model</a>
                         </li>
                     </ul>
                 </div>
@@ -286,7 +289,76 @@
 .demo-gallery.dark > ul > li a {
   border: 3px solid #04070a;
 }
+
+.lg-custom-thumbnails {
+    &.lg-outer {
+        width: auto;
+        // Set space for the container to occupy thumbnails
+        right: auto;
+
+        // Add some spacing on the left to match with the right hand side spacing
+        left: 10px;
+
+        .lg-thumb-outer {
+            // Set the position of the thumbnails
+            left: 0;
+            top: 0;
+            width: 0;
+            bottom: 0;
+            position: fixed;
+            right: 0;
+
+            // Reset max height
+            max-height: none;
+
+            // Customize the layout (Optional)
+            background-color: #999;
+            padding-left: 5px;
+            padding-right: 5px;
+            margin: 0 -10px;
+            overflow-y: auto;
+
+            // Update transition values
+            // By default thumbnails animates from bottom to top
+            // Change that from right to left.
+            // Also, add a tiny opacity transition to look better
+            transform: translate3d(30%, 0, 0);
+            opacity: 0;
+            will-change: transform opacity;
+            transition: transform 0.15s cubic-bezier(0, 0, 0.25, 1) 0s, cubic-bezier(
+                        0,
+                        0,
+                        0.25,
+                        1
+                    ) 0.15s;
+        }
+
+        &.lg-thumb-open {
+            .lg-thumb-outer {
+                transform: translate3d(0, 0, 0);
+                opacity: 1;
+            }
+        }
+
+        // Add hove effect (Optional)
+        .lg-thumb-item {
+            filter: grayscale(100%);
+            will-change: filter;
+            transition: filter 0.12s ease-in, border-color 0.12s ease;
+            &:hover,
+            &.active {
+                filter: grayscale(0);
+                border-color: #545454;
+            }
+        }
+
+        .lg-thumb {
+            padding: 5px 0;
+        }
+    }
+}
           </style>
+
           <!-- Script -->
         
         <script type="text/javascript">
@@ -295,7 +367,7 @@
         $("#img2").fadeIn(4000);
         });
         </script>
-        <section style="padding-top: 120px; padding-bottom: 120px; min-height: 300px; color: #ffffff; background-size: cover; background-repeat: no-repeat; background-image: url('https://images.unsplash.com/photo-1579546929662-711aa81148cf?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjIwOTIyfQ');" id="hero" data-pg-ia-scene='{"dir":"a","s":"custom","s_t":"start","s_s":"end","e_t":"end","e_s":"start","l":[{"a":{"l":[{"t":"","l":[{"t":"tween","p":0,"d":1,"l":{"pgia":{"play":"HideContent"}}},{"t":"tween","p":1,"d":8,"l":{"pgia":{"play":"ShowContent","once":1}}},{"t":"tween","p":9,"d":1,"l":{"pgia":{"play":"HideContent"}}}]}]},"p":"scroll","sc_dir":"up_down","rep":"true"}],"smooth":"0"}' data-pg-ia='{"l":[{"name":"ShowContent","trg":"no","a":{"l":[{"t":"h1,h2,p","l":[{"t":"tween","p":0,"d":1,"s":0.5,"l":{"autoAlpha":1}}]}],"desc":"Customize this animation to show the content when the section comes into view."}},{"name":"HideContent","trg":"no","a":{"l":[{"t":"","l":[]}],"desc":"Customize to hide the content when the section goes out of view. Not needed if you want to reveal the content only once. If hiding content, also remove Show Once in Scroll Scene animation."}}]}' data-pg-ia-apply="$section">
+        <section style="padding-top: 120px; padding-bottom: 120px; min-height: 300px; color: #ffffff; background-size: cover; background-repeat: no-repeat; background-image: url('/static/images/background.jpg');" id="hero" data-pg-ia-scene='{"dir":"a","s":"custom","s_t":"start","s_s":"end","e_t":"end","e_s":"start","l":[{"a":{"l":[{"t":"","l":[{"t":"tween","p":0,"d":1,"l":{"pgia":{"play":"HideContent"}}},{"t":"tween","p":1,"d":8,"l":{"pgia":{"play":"ShowContent","once":1}}},{"t":"tween","p":9,"d":1,"l":{"pgia":{"play":"HideContent"}}}]}]},"p":"scroll","sc_dir":"up_down","rep":"true"}],"smooth":"0"}' data-pg-ia='{"l":[{"name":"ShowContent","trg":"no","a":{"l":[{"t":"h1,h2,p","l":[{"t":"tween","p":0,"d":1,"s":0.5,"l":{"autoAlpha":1}}]}],"desc":"Customize this animation to show the content when the section comes into view."}},{"name":"HideContent","trg":"no","a":{"l":[{"t":"","l":[]}],"desc":"Customize to hide the content when the section goes out of view. Not needed if you want to reveal the content only once. If hiding content, also remove Show Once in Scroll Scene animation."}}]}' data-pg-ia-apply="$section">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-black-50">
@@ -385,45 +457,35 @@
                           data-sub-html="<h2>Number of oscillators is 10</h2><p></p>">
                             <a href="">
                               <img class="img-responsive" src="{% static 'images/Figure_1.png' %}">
-                              <div class="demo-gallery-poster">
-                                <img src="https://sachinchoolur.github.io/lightGallery/static/img/zoom.png">
-                              </div>
+                              
                             </a>
                           </li>
                           <li data-responsive="{% static 'images/Figure_4.png' %}" data-src="{% static 'images/Figure_4.png' %}"
                           data-sub-html="<h2>Number of oscillators is 50</h2><p></p>">
                             <a href="">
                               <img class="img-responsive" src="{% static 'images/Figure_4.png' %}">
-                              <div class="demo-gallery-poster">
-                                <img src="https://sachinchoolur.github.io/lightGallery/static/img/zoom.png">
-                              </div>
+                              
                             </a>
                           </li>
                           <li data-responsive="{% static 'images/Figure_2.png' %}" data-src="{% static 'images/Figure_2.png' %}"
                           data-sub-html="<h2>Number of oscillators is 100</h2><p></p>">
                             <a href="">
                               <img class="img-responsive" src="{% static 'images/Figure_2.png' %}">
-                              <div class="demo-gallery-poster">
-                                <img src="https://sachinchoolur.github.io/lightGallery/static/img/zoom.png">
-                              </div>
+                              
                             </a>
                           </li>
                           <li data-responsive="{% static 'images/Figure_5.png' %}" data-src="{% static 'images/Figure_5.png' %}"
                           data-sub-html="<h2>Number of oscillators is 500</h2><p></p>">
                             <a href="">
                               <img class="img-responsive" src="{% static 'images/Figure_5.png' %}">
-                              <div class="demo-gallery-poster">
-                                <img src="https://sachinchoolur.github.io/lightGallery/static/img/zoom.png">
-                              </div>
+                              
                             </a>
                           </li>
                           <li data-responsive="{% static 'images/Figure_3.png' %}" data-src="{% static 'images/Figure_3.png' %}"
                           data-sub-html="<h2>Number of oscillators is 1000</h2><p></p>">
                             <a href="">
                               <img class="img-responsive" src="{% static 'images/Figure_3.png' %}">
-                              <div class="demo-gallery-poster">
-                                <img src="https://sachinchoolur.github.io/lightGallery/static/img/zoom.png">
-                              </div>
+                              
                             </a>
                           </li>
                         </ul>
@@ -432,12 +494,51 @@
                 </div>
             </div>
         </section>
+        <section data-pg-class-style="section" id="section4" style="background-color: #eeeeee;">
+          <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2 data-pg-ia-hide>Adaptive Kuramoto Model</h2>
+                        <p data-pg-ia-hide>A feature of adaptive networks is the property of adaptivity of inter-element interactions, which consists in a dynamic change in the strength of the connection between network elements depending on their current states.</p>
+                        <p> 
+                          \begin{equation}
+                            \frac{d\theta_{i}}{dt} = \omega_{i} + \frac{K|\omega_{i}|}{N}\sum_{j=1}^{N}\sin(\theta_{j}-\theta_{i}), \qquad i=1\ldots N\
+                            \end{equation}
+                        </p>
+                        <p> Below you can view the modelling results of such system: </p>
+                        <div id="customize-thumbnails-gallery" class='centered'>
+    <a href="{% static 'images/compare.png' %}">
+        <img src="{% static 'images/thumbnails/compare_tn.jpg' %}" />
+    </a>
+    <a href="{% static 'images/compare_2.png' %}">
+        <img src="{% static 'images/thumbnails/compare_2_tn.jpg' %}" />
+    </a>
+    <a href="{% static 'images/compare_3.png' %}">
+        <img src="{% static 'images/thumbnails/compare_3_tn.jpg' %}" />
+    </a>
+    <p>For adaptive couplings, the order parameters calculated in the "forward" and "backward" directions by the coupling parameter behave differently.</p>
+    <a href="{% static 'images/0-4.png' %}" data-sub-html="<h2>Forward transition</h2>">
+        <img src="{% static 'images/thumbnails/0-4_tn.jpg' %}" />
+    </a>
+    <a href="{% static 'images/4-0.png' %}" data-sub-html="<h2>Backward transition</h2>">
+        <img src="{% static 'images/thumbnails/4-0_tn.jpg' %}" />
+    </a>
+</div>
+        </section>
+        <section data-pg-class-style="section" id="section5">
+          <pre><code>
+                        <center><h6>You can try it yourself here:</h6></center>
+                        <center><a class="btn btn-primary" role="button" href="{% url 'download' %}">Download</a></center>
+                        <center><p>To run it install <a href="https://www.python.org/downloads/" class="text-black">Python</a> and <a href="https://scipy.org/install/" class="text-black">SciPy</a> </p></center>
+                      </code>
+                    </pre>
+        </section>
         
         <footer class=" bg-dark pb-3 pt-3 text-light">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <p class="mb-0">Created by <a href="https://icosane.github.io/esoragoto/" class="text-white">icosane</a>. Something definitely reserved. 2022
+                        <p class="mb-0">Created by <a href="https://icosane.github.io/esoragoto/" class="text-white">icosane</a>. Something definitely reserved. 2021-2022
                         </p>
                     </div>
                 </div>
@@ -446,12 +547,26 @@
         
         
         <script type="text/javascript" src="{% static 'esoragoto/pgia/lib/pgia.js' %}"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.4.0/lightgallery.min.js" ></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/2.4.0/css/lightgallery.min.css" />
+        <script type="text/javascript" src="{% static 'esoragoto/lightgallery.min.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'esoragoto/lightgallery.min.css' %}" />
         <script src="{% static 'esoragoto/prism.js' %}"></script>
+        
         
         <script>
         lightGallery(document.getElementById('lightgallery'));
+        </script>
+        <script type="text/javascript">
+          lightGallery(document.getElementById('customize-thumbnails-gallery'), {
+    // Add a custom class to apply style only for the particular gallery
+    addClass: 'lg-custom-thumbnails',
+
+    // Remove the starting animations.
+    // This can be done by overriding CSS as well
+    appendThumbnailsTo: '.lg-outer',
+
+    animateThumb: false,
+    allowMediaOverlap: true,
+});
         </script>
         
     </body>
