@@ -25,6 +25,10 @@ def kuramoto(theta, t, omega, K, N):
     A, B = sin(theta), cos(theta)
     return omega + (K / N) * (B * sum(A) - A * sum(B))
 
+def adaptive_kuramoto(theta,t,omega,K,N):
+    A,B = sin(theta), cos(theta)
+    return omega+((K*abs(omega))/N)*(B*sum(A)-A*sum(B))
+
 def theta(kuramoto, theta01, t, omega, K, N):
     return odeint(kuramoto, theta01, t, args=(omega, K, N))
 
@@ -100,7 +104,40 @@ def index(request):
     ax3.grid()
     html_fig2 = mpld3.fig_to_html(fig2, template_type='general')
     plt.close(fig2)
-    return render(request, 'index.html', {'div_figure1': html_fig1, 'div_figure2': html_fig2})
+
+    NA = 50
+    ma = 100
+    Ka1 = linspace(0,4,ma)
+    interval_t_a = 1000  #пространство i
+
+    theta0a = random.uniform(0,2*pi,NA)
+    omegaa = random.triangular(-10,0,10,NA)
+
+    ta = linspace(0,100,interval_t_a)
+
+    LA = []
+
+
+    for h in Ka1: 
+        thetaa = odeint(adaptive_kuramoto,theta0a,ta,args=(omegaa,h,NA))
+        S1a = [sum(cos(thetaa[o])) for o in range(interval_t_a)]
+        d1a = array([o**2 for o in S1a])
+    
+        S2a = [sum(sin(thetaa[p])) for p in range(interval_t_a)]
+        d2a = array([p**2 for p in S2a])
+
+        ra = (1.0/NA)*sqrt(d1a + d2a)
+    
+        xa = sum(ra[(len(ra)//2):])/(interval_t_a//2)
+        LA.append(xa)
+
+    fig3, ax4 = plt.subplots()
+    ax4.plot(Ka1,LA)
+    ax4.set(xlabel='K', ylabel='r ∞')
+    ax4.grid()
+    html_fig3 = mpld3.fig_to_html(fig3, template_type='general')
+    plt.close(fig3)
+    return render(request, 'index.html', {'div_figure1': html_fig1, 'div_figure2': html_fig2, 'div_figure3': html_fig3})
 
 
 def graph_n1(request):
@@ -171,3 +208,76 @@ def graph_n2(request):
 
     plt.close(fig)
     return render(request, 'graph_n2.html', {'div_figure': html_fig})
+
+
+def graph_n3(request):
+    NA = int(request.POST['N'])
+    ma = int(request.POST['m'])
+    tt = int(request.POST['t'])
+    Ka1 = linspace(0,tt,ma)
+    interval_t_a = 1000  #пространство i
+
+    theta0a = random.uniform(0,2*pi,NA)
+    omegaa = random.triangular(-10,0,10,NA)
+
+    ta = linspace(0,100,interval_t_a)
+
+    LA = []
+
+
+    for h in Ka1: 
+        thetaa = odeint(adaptive_kuramoto,theta0a,ta,args=(omegaa,h,NA))
+        S1a = [sum(cos(thetaa[o])) for o in range(interval_t_a)]
+        d1a = array([o**2 for o in S1a])
+    
+        S2a = [sum(sin(thetaa[p])) for p in range(interval_t_a)]
+        d2a = array([p**2 for p in S2a])
+
+        ra = (1.0/NA)*sqrt(d1a + d2a)
+    
+        xa = sum(ra[(len(ra)//2):])/(interval_t_a//2)
+        LA.append(xa)
+        
+    fig, ax = plt.subplots()
+    ax.plot(Ka1,LA)
+    ax.set(xlabel='K', ylabel='r ∞')
+    ax.grid()
+    html_fig = mpld3.fig_to_html(fig, template_type='general')
+    plt.close(fig)
+    return render(request, 'graph_n3.html', {'div_figure': html_fig})
+
+def graph_n4(request):
+    NA = int(request.POST['N'])
+    ma = int(request.POST['m'])
+    tt = int(request.POST['t'])
+    Ka1 = linspace(tt,0,ma)
+    interval_t_a = 1000  #пространство i
+
+    theta0a = random.uniform(0,2*pi,NA)
+    omegaa = random.triangular(-10,0,10,NA)
+
+    ta = linspace(0,100,interval_t_a)
+
+    LA = []
+
+
+    for h in Ka1: 
+        thetaa = odeint(adaptive_kuramoto,theta0a,ta,args=(omegaa,h,NA))
+        S1a = [sum(cos(thetaa[o])) for o in range(interval_t_a)]
+        d1a = array([o**2 for o in S1a])
+    
+        S2a = [sum(sin(thetaa[p])) for p in range(interval_t_a)]
+        d2a = array([p**2 for p in S2a])
+
+        ra = (1.0/NA)*sqrt(d1a + d2a)
+    
+        xa = sum(ra[(len(ra)//2):])/(interval_t_a//2)
+        LA.append(xa)
+        
+    fig, ax = plt.subplots()
+    ax.plot(Ka1,LA)
+    ax.set(xlabel='K', ylabel='r ∞')
+    ax.grid()
+    html_fig = mpld3.fig_to_html(fig, template_type='general')
+    plt.close(fig)
+    return render(request, 'graph_n4.html', {'div_figure': html_fig})
