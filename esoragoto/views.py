@@ -105,8 +105,8 @@ def index(request):
     html_fig2 = mpld3.fig_to_html(fig2, template_type='general')
     plt.close(fig2)
 
-    NA = 50
-    ma = 100
+    NA = 90
+    ma = 50
     Ka1 = linspace(0,4,ma)
     interval_t_a = 1000  #пространство i
 
