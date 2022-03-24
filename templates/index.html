@@ -512,9 +512,9 @@
                       <p><center> To calculate in forward direction: </center></p>
                         <div class="container6"> <form action="graph_n3" method="POST">
                             {% csrf_token %}
-                            Input N: <input type="number" pattern="[0-9]+" min="1" max="1000" required name="N" class="TextField" placeholder="0-1000" />
-                            Input coupling parameter step: <input type="number" step="any" pattern="[0-9]+" min="0" max="1000" name="m" required class="TextField" placeholder="0-1000" />
-                            Input t: <input type="number" step="any" pattern="[0-9]+" min="0" max="1000" name="t" required class="TextField" placeholder="0-1000" />
+                            Input N: <input type="number" pattern="[0-9]+" min="1" max="90" required name="N" class="TextField" placeholder="0-90" />
+                            Input coupling parameter step: <input type="number" step="any" pattern="[0-9]+" min="0" max="50" name="m" required class="TextField" placeholder="0-50" />
+                            Input t: <input type="number" step="any" pattern="[0-9]+" min="0" max="50" name="t" required class="TextField" placeholder="0-50" />
                             <div class="btn-group" role="group">
                             <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="Submit" value="Submit"/>
                             </form> </div></div>
