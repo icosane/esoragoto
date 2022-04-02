@@ -281,3 +281,92 @@ def graph_n4(request):
     html_fig = mpld3.fig_to_html(fig, template_type='general')
     plt.close(fig)
     return render(request, 'graph_n4.html', {'div_figure': html_fig})
+
+
+def ru(request):
+    N1 = 50  # число осциляторов
+    K1 = 300  # K/N = параметр амплитуды связи
+    l1 = random.uniform(0, 2 * pi, N1)
+    theta01 = []  # начальные фазы
+    for i in l1:
+        theta01.append('%.1f' % i)  # количество точек после запятой
+
+    omega1 = random.uniform(1, 3, N1)  # частота
+
+    t1 = linspace(0, 0.1, interval_t)  # время
+
+    # вычисление r(t)
+
+    r1 = (1.0 / N1) * sqrt(rt(kuramoto,theta01,t1,omega1,K1,N1,interval_t))
+
+    # построение графиков
+    fig1, (ax1, ax2) = plt.subplots(1, 2, figsize=(15,6))
+    for i in range(N1):
+        ax1.plot(t1, sin(omega1[i] * t1 + theta(kuramoto, theta01, t1, omega1, K1, N1)[:, i]))
+    ax1.set(xlabel='t', ylabel='sin(ω(t)+θ)')
+
+    ax2.plot(t1, r1)
+    ax2.set(xlabel='t', ylabel='r (t)')
+
+    ax1.grid()
+    ax2.grid()
+    fig1.tight_layout()
+    html_fig1 = mpld3.fig_to_html(fig1, template_type='general')
+
+    plt.close(fig1)
+
+
+    N2 = 10
+    m2 = 50
+    K2 = linspace(0,8,m2)
+    theta02 = random.uniform(0,2*pi,N2)
+    omega2 = random.uniform(1,5,N2)
+    
+    t = linspace(0, 2, interval_t)
+    L = []
+    for j in K2:
+
+        r = (1.0 / N2) * sqrt(rt2(kuramoto,theta02,t,omega2,j,N2,interval_t))
+
+        x = sum(r[(len(r)//2):])/(interval_t//2)
+        L.append(x)
+    fig2, ax3 = plt.subplots()
+    ax3.plot(K2, L)
+    ax3.set(xlabel='K', ylabel='r ∞')
+    ax3.grid()
+    html_fig2 = mpld3.fig_to_html(fig2, template_type='general')
+    plt.close(fig2)
+
+    NA = 90
+    ma = 50
+    Ka1 = linspace(0,4,ma)
+    interval_t_a = 1000  #пространство i
+
+    theta0a = random.uniform(0,2*pi,NA)
+    omegaa = random.triangular(-10,0,10,NA)
+
+    ta = linspace(0,100,interval_t_a)
+
+    LA = []
+
+
+    for h in Ka1: 
+        thetaa = odeint(adaptive_kuramoto,theta0a,ta,args=(omegaa,h,NA))
+        S1a = [sum(cos(thetaa[o])) for o in range(interval_t_a)]
+        d1a = array([o**2 for o in S1a])
+    
+        S2a = [sum(sin(thetaa[p])) for p in range(interval_t_a)]
+        d2a = array([p**2 for p in S2a])
+
+        ra = (1.0/NA)*sqrt(d1a + d2a)
+    
+        xa = sum(ra[(len(ra)//2):])/(interval_t_a//2)
+        LA.append(xa)
+
+    fig3, ax4 = plt.subplots()
+    ax4.plot(Ka1,LA)
+    ax4.set(xlabel='K', ylabel='r ∞')
+    ax4.grid()
+    html_fig3 = mpld3.fig_to_html(fig3, template_type='general')
+    plt.close(fig3)
+    return render(request, 'ru.html', {'div_figure1': html_fig1, 'div_figure2': html_fig2, 'div_figure3': html_fig3})

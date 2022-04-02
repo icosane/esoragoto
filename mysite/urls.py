@@ -24,6 +24,7 @@ urlpatterns = [
     path('graph_n2', views.graph_n2, name='graph_n2'),
     path('graph_n3', views.graph_n3, name='graph_n3'),
     path('graph_n4', views.graph_n4, name='graph_n4'),
+    path('ru', views.ru, name='ru'),
     path('download', views.download, name='download'),
     #path('admin/', admin.site.urls),
 ]
