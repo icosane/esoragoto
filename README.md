@@ -18,9 +18,6 @@ Provides:
 ## Where to check the code without all the Django stuff?
 https://github.com/icosane/aqualilac
 
-## Development version:
-https://ywegfuygw.herokuapp.com/
-
 ## Support or Contact
 
 If something doesn't work, update the requirements and pray that it will work. I actually didn't test the heroku deploy button. ヾ(•ω•`)o 
