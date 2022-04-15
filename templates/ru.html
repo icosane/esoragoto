@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-{% load pwa %}
 {% load static %}
     <head>
         <meta charset="utf-8">
@@ -9,45 +8,41 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <title>esoragoto</title>
-        {% progressive_web_app_meta %}
-        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" ></script>
-        <link href="{% static 'esoragoto/css/prism.css' %}" rel="stylesheet" />
+        <script type="text/javascript" src="{% static 'esoragoto/polyfill.min.js' %}"></script>
+        <script id="MathJax-script" async src="{% static 'esoragoto/es5/tex-mml-chtml.js' %}"></script>
+        <script type="text/javascript" src="{% static 'esoragoto/jquery.min.js' %}"></script>
+        <link src="{% static 'esoragoto/css/prism.css' %}" rel="stylesheet" />
         
         <!-- Bootstrap core CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="{% static 'esoragoto/bootstrap/css/bootstrap.min.css' %}" >
         <!-- Custom styles for this template -->
         <script>/* Pinegrow Interactions, do not remove */ try{if(!document.documentElement.hasAttribute('data-pg-ia-disabled')) { var style = document.createElement('style');var pgcss='html:not(.pg-ia-no-preview) [data-pg-ia-hide=""] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show=""] {opacity:1;visibility:visible;display:block;}';if(document.documentElement.hasAttribute('data-pg-id')?document.documentElement.hasAttribute('data-pg-mobile'):(screen.width<1000&&screen.height<1000)){pgcss+='html:not(.pg-ia-no-preview) [data-pg-ia-hide="mobile"] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show="mobile"] {opacity:1;visibility:visible;display:block;}';}else{pgcss+='html:not(.pg-ia-no-preview) [data-pg-ia-hide="desktop"] {opacity:0;visibility:hidden;}html:not(.pg-ia-no-preview) [data-pg-ia-show="desktop"] {opacity:1;visibility:visible;display:block;}';}style.innerHTML=pgcss;document.querySelector('head').appendChild(style);}}catch(e){console&&console.log(e);}</script>
         <link rel="stylesheet" href="{% static 'esoragoto/css/style.css' %}">
     </head>
     <body data-pg-ia-scene='{"smooth":"0","s":"whole","s_t":"top","s_s":"top","e_t":"bottom","e_s":"bottom","pint":"#section4","snap_sel":"section","snap_durmax":"0.5","pag":"e","pag_t":"section","pag_i":"nav .nav-item a","pag_pa":"MakeActive,PlayMoveTile","pag_tc":"55"}' style="padding-top: 55px;">
         <header class="bg-white" data-pg-dyn-id="did_0">
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="#">esoragoto</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" data-pg-ia="{&quot;l&quot;:[{&quot;name&quot;:&quot;PositionTileOnOpen&quot;,&quot;trg&quot;:&quot;click&quot;,&quot;a&quot;:{&quot;l&quot;:[{&quot;t&quot;:&quot;^nav|.active-tile&quot;,&quot;l&quot;:[{&quot;t&quot;:&quot;set&quot;,&quot;p&quot;:0,&quot;d&quot;:0,&quot;l&quot;:{&quot;autoAlpha&quot;:0}},{&quot;t&quot;:&quot;tween&quot;,&quot;p&quot;:0.4,&quot;d&quot;:0.15,&quot;l&quot;:{&quot;pgia&quot;:{&quot;play&quot;:&quot;MoveTile&quot;}}},{&quot;t&quot;:&quot;tween&quot;,&quot;p&quot;:0.55,&quot;d&quot;:0.13,&quot;l&quot;:{&quot;autoAlpha&quot;:1}}]}]},&quot;pdef&quot;:&quot;true&quot;,&quot;rcr&quot;:&quot;true&quot;}]}">
-                    <span class="navbar-toggler-icon"></span>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light"><a class="navbar-brand" href="#hero">esoragoto</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" data-pg-ia='{"l":[{"name":"PositionTileOnOpen","trg":"click","a":{"l":[{"t":"^nav|.active-tile","l":[{"t":"set","p":0,"d":0,"l":{"autoAlpha":0}},{"t":"tween","p":0.4,"d":0.15,"l":{"pgia":{"play":"MoveTile"}}},{"t":"tween","p":0.55,"d":0.13,"l":{"autoAlpha":1}}]}]},"pdef":"true","rcr":"true"}]}'><span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <div class="active-tile" data-pg-ia="{&quot;l&quot;:[{&quot;name&quot;:&quot;MoveTile&quot;,&quot;trg&quot;:&quot;no&quot;,&quot;a&quot;:{&quot;l&quot;:[{&quot;t&quot;:&quot;$.active-tile&quot;,&quot;l&quot;:[{&quot;t&quot;:&quot;tween&quot;,&quot;p&quot;:0,&quot;d&quot;:0.28,&quot;l&quot;:{&quot;pgPos&quot;:{&quot;pos&quot;:&quot;center&quot;,&quot;width&quot;:104,&quot;tsel&quot;:&quot;^nav|.nav-item.active a&quot;}}}]}]},&quot;rstr&quot;:&quot;true&quot;}]}"></div>
+                    <div class="active-tile" data-pg-ia='{"l":[{"name":"MoveTile","trg":"no","a":{"l":[{"t":"$.active-tile","l":[{"t":"tween","p":0,"d":0.28,"l":{"pgPos":{"pos":"center","width":104,"tsel":"^nav|.nav-item.active a"}}}]}]},"rstr":"true"}]}'></div>
                     <ul class="navbar-nav" style="z-index: 1; position: relative;">
-                        <li class="nav-item">
-                            <a class="nav-link" href="#hero" data-pg-ia="{&quot;l&quot;:[{&quot;name&quot;:&quot;ScrollOnClick&quot;,&quot;trg&quot;:&quot;click&quot;,&quot;a&quot;:{&quot;l&quot;:[{&quot;t&quot;:&quot;^body&quot;,&quot;l&quot;:[{&quot;t&quot;:&quot;tween&quot;,&quot;p&quot;:0,&quot;d&quot;:0.59,&quot;l&quot;:{&quot;scrollTo&quot;:{&quot;dest&quot;:&quot;${target.href}&quot;}}},{&quot;t&quot;:&quot;tween&quot;,&quot;p&quot;:0,&quot;d&quot;:0.59,&quot;l&quot;:{&quot;history.push&quot;:&quot;${target.href}&quot;},&quot;m&quot;:true}]},{&quot;t&quot;:&quot;&quot;,&quot;l&quot;:[{&quot;t&quot;:&quot;tween&quot;,&quot;p&quot;:0,&quot;d&quot;:0.3,&quot;l&quot;:{&quot;pgia&quot;:{&quot;play&quot;:&quot;MakeActive&quot;}}}]},{&quot;t&quot;:&quot;^nav|.active-tile&quot;,&quot;l&quot;:[{&quot;t&quot;:&quot;tween&quot;,&quot;p&quot;:0,&quot;d&quot;:0.3,&quot;l&quot;:{&quot;pgia&quot;:{&quot;play&quot;:&quot;MoveTile&quot;}}}]}]},&quot;pdef&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;MakeActive&quot;,&quot;trg&quot;:&quot;no&quot;,&quot;a&quot;:{&quot;l&quot;:[{&quot;t&quot;:&quot;^nav|.nav-item.active&quot;,&quot;l&quot;:[{&quot;t&quot;:&quot;set&quot;,&quot;p&quot;:0,&quot;d&quot;:0,&quot;l&quot;:{&quot;class.remove&quot;:&quot;active&quot;}}]},{&quot;t&quot;:&quot;^.nav-item&quot;,&quot;l&quot;:[{&quot;t&quot;:&quot;tween&quot;,&quot;p&quot;:0,&quot;d&quot;:0.05,&quot;l&quot;:{&quot;class.add&quot;:&quot;active&quot;}}]},{&quot;t&quot;:&quot;this&quot;,&quot;l&quot;:[{&quot;t&quot;:&quot;tween&quot;,&quot;p&quot;:0,&quot;d&quot;:0.5,&quot;l&quot;:{&quot;color&quot;:&quot;#f500db&quot;}}],&quot;m&quot;:true}]},&quot;rcr&quot;:&quot;true&quot;},{&quot;name&quot;:&quot;PlayMoveTile&quot;,&quot;trg&quot;:&quot;no&quot;,&quot;a&quot;:{&quot;l&quot;:[{&quot;t&quot;:&quot;^nav|.active-tile&quot;,&quot;l&quot;:[{&quot;t&quot;:&quot;tween&quot;,&quot;p&quot;:0.1,&quot;d&quot;:0.4,&quot;l&quot;:{&quot;pgia&quot;:{&quot;play&quot;:&quot;MoveTile&quot;}}}]}]},&quot;rstr&quot;:&quot;true&quot;}]}" data-pg-ia-apply="^nav|a[href^=&quot;#&quot;]">главная</a>
+                        <li class="nav-item"><a class="nav-link" href="#hero" data-pg-ia='{"l":[{"name":"ScrollOnClick","trg":"click","a":{"l":[{"t":"^body","l":[{"t":"tween","p":0,"d":0.59,"l":{"scrollTo":{"dest":"${target.href}"}}},{"t":"tween","p":0,"d":0.59,"l":{"history.push":"${target.href}"},"m":true}]},{"t":"","l":[{"t":"tween","p":0,"d":0.3,"l":{"pgia":{"play":"MakeActive"}}}]},{"t":"^nav|.active-tile","l":[{"t":"tween","p":0,"d":0.3,"l":{"pgia":{"play":"MoveTile"}}}]}]},"pdef":"true"},{"name":"MakeActive","trg":"no","a":{"l":[{"t":"^nav|.nav-item.active","l":[{"t":"set","p":0,"d":0,"l":{"class.remove":"active"}}]},{"t":"^.nav-item","l":[{"t":"tween","p":0,"d":0.05,"l":{"class.add":"active"}}]},{"t":"this","l":[{"t":"tween","p":0,"d":0.5,"l":{"color":"#f500db"}}],"m":true}]},"rcr":"true"},{"name":"PlayMoveTile","trg":"no","a":{"l":[{"t":"^nav|.active-tile","l":[{"t":"tween","p":0.1,"d":0.4,"l":{"pgia":{"play":"MoveTile"}}}]}]},"rstr":"true"}]}' data-pg-ia-apply="^nav|a[href^=&quot;#&quot;]">главная</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#section1">описание</a>
+                            <a class="nav-link" href="#section1">о модели</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#section2">зависимость сигналов от времени</a>
+                            <a class="nav-link" href="#section2">фазы от времени</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#section3">параметр порядка</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="#section4">как это работает</a>
-                      </li>
-                      <li class="nav-item">
-                        <a class="nav-link" href="{% url 'index' %}">переключить язык на английский</a>
+                            <a class="nav-link" href="#section4">адаптивная модель</a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="{% url 'index' %}">🇬🇧</a>
                     </li>
                     </ul>
                 </div>
@@ -297,7 +292,76 @@
 .demo-gallery.dark > ul > li a {
   border: 3px solid #04070a;
 }
+
+.lg-custom-thumbnails {
+    &.lg-outer {
+        width: auto;
+        // Set space for the container to occupy thumbnails
+        right: auto;
+
+        // Add some spacing on the left to match with the right hand side spacing
+        left: 10px;
+
+        .lg-thumb-outer {
+            // Set the position of the thumbnails
+            left: 0;
+            top: 0;
+            width: 0;
+            bottom: 0;
+            position: fixed;
+            right: 0;
+
+            // Reset max height
+            max-height: none;
+
+            // Customize the layout (Optional)
+            background-color: #999;
+            padding-left: 5px;
+            padding-right: 5px;
+            margin: 0 -10px;
+            overflow-y: auto;
+
+            // Update transition values
+            // By default thumbnails animates from bottom to top
+            // Change that from right to left.
+            // Also, add a tiny opacity transition to look better
+            transform: translate3d(30%, 0, 0);
+            opacity: 0;
+            will-change: transform opacity;
+            transition: transform 0.15s cubic-bezier(0, 0, 0.25, 1) 0s, cubic-bezier(
+                        0,
+                        0,
+                        0.25,
+                        1
+                    ) 0.15s;
+        }
+
+        &.lg-thumb-open {
+            .lg-thumb-outer {
+                transform: translate3d(0, 0, 0);
+                opacity: 1;
+            }
+        }
+
+        // Add hove effect (Optional)
+        .lg-thumb-item {
+            filter: grayscale(100%);
+            will-change: filter;
+            transition: filter 0.12s ease-in, border-color 0.12s ease;
+            &:hover,
+            &.active {
+                filter: grayscale(0);
+                border-color: #545454;
+            }
+        }
+
+        .lg-thumb {
+            padding: 5px 0;
+        }
+    }
+}
           </style>
+
           <!-- Script -->
         
         <script type="text/javascript">
@@ -306,12 +370,12 @@
         $("#img2").fadeIn(4000);
         });
         </script>
-        <section style="padding-top: 120px; padding-bottom: 120px; min-height: 300px; color: #ffffff; background-size: cover; background-repeat: no-repeat; background-image: url('https://images.unsplash.com/photo-1579546929662-711aa81148cf?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjIwOTIyfQ');" id="hero" data-pg-ia-scene='{"dir":"a","s":"custom","s_t":"start","s_s":"end","e_t":"end","e_s":"start","l":[{"a":{"l":[{"t":"","l":[{"t":"tween","p":0,"d":1,"l":{"pgia":{"play":"HideContent"}}},{"t":"tween","p":1,"d":8,"l":{"pgia":{"play":"ShowContent","once":1}}},{"t":"tween","p":9,"d":1,"l":{"pgia":{"play":"HideContent"}}}]}]},"p":"scroll","sc_dir":"up_down","rep":"true"}],"smooth":"0"}' data-pg-ia='{"l":[{"name":"ShowContent","trg":"no","a":{"l":[{"t":"h1,h2,p","l":[{"t":"tween","p":0,"d":1,"s":0.5,"l":{"autoAlpha":1}}]}],"desc":"Customize this animation to show the content when the section comes into view."}},{"name":"HideContent","trg":"no","a":{"l":[{"t":"","l":[]}],"desc":"Customize to hide the content when the section goes out of view. Not needed if you want to reveal the content only once. If hiding content, also remove Show Once in Scroll Scene animation."}}]}' data-pg-ia-apply="$section">
+        <section style="padding-top: 120px; padding-bottom: 120px; min-height: 300px; color: #ffffff; background-size: cover; background-repeat: no-repeat; background-image: url('/static/images/background.jpg');" id="hero" data-pg-ia-scene='{"dir":"a","s":"custom","s_t":"start","s_s":"end","e_t":"end","e_s":"start","l":[{"a":{"l":[{"t":"","l":[{"t":"tween","p":0,"d":1,"l":{"pgia":{"play":"HideContent"}}},{"t":"tween","p":1,"d":8,"l":{"pgia":{"play":"ShowContent","once":1}}},{"t":"tween","p":9,"d":1,"l":{"pgia":{"play":"HideContent"}}}]}]},"p":"scroll","sc_dir":"up_down","rep":"true"}],"smooth":"0"}' data-pg-ia='{"l":[{"name":"ShowContent","trg":"no","a":{"l":[{"t":"h1,h2,p","l":[{"t":"tween","p":0,"d":1,"s":0.5,"l":{"autoAlpha":1}}]}],"desc":"Customize this animation to show the content when the section comes into view."}},{"name":"HideContent","trg":"no","a":{"l":[{"t":"","l":[]}],"desc":"Customize to hide the content when the section goes out of view. Not needed if you want to reveal the content only once. If hiding content, also remove Show Once in Scroll Scene animation."}}]}' data-pg-ia-apply="$section">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12 text-black-50">
                         <h1 class="display-3 text-white" data-pg-ia-hide>Модель Курамото</h1>
-                        <p class="lead text-white" data-pg-ia-hide>Работает на Django, WhiteNoise, matplotlib, Numba, mpld3. Может быть установлен как Progressive Web App! Создано с помощью Pinegrow.</p>
+                        <p class="lead text-white" data-pg-ia-hide>Создано при помощи Django, matplotlib, Numba, mpld3.</p>
                     </div>
                 </div>
             </div>
@@ -320,25 +384,24 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 data-pg-ia-hide>Описание</h2>
-                        <p data-pg-ia-hide>Модель Курамото - это математическая модель, используемая для описания синхронизации.В частности, это модель поведения большого набора связанных осцилляторов. Модель делает несколько предположений, в том числе, что существует слабая связь, что осцилляторы идентичны или почти идентичны, и что взаимодействие синусоидально зависит от разницы фаз между каждой парой объектов.В наиболее популярной версии модели Курамото считается, что каждый из осцилляторов имеет собственную собственную частоту \(\omega_{i} \),, и каждый из них в равной степени связан со всеми остальными осцилляторами.Удивительно, но эта полностью нелинейная модель может быть решена точно в пределе бесконечных осцилляторов, N → ∞; в качестве альтернативы,  используя аргументы самосогласованности, можно получить стационарные решения параметра порядка.</p>
-                         <p data-pg-ia-hide>   Наиболее популярной формой модели являются следующие уравнения: 
+                        <h2 data-pg-ia-hide>О модели</h2>
+                        <p>Модель Курамото - это математическая модель, используемая для описания синхронизации. В частности, это модель поведения большого набора связанных осцилляторов. Модель предполагает несколько допущений, в том числе, что существует слабая связь, что осцилляторы идентичны или почти идентичны, и что взаимодействие зависит синусоидально от разности фаз между каждой парой объектов. В наиболее популярной версии модели Курамото считается, что каждый из осцилляторов имеет свою собственную собственную частоту \(\omega_{i} \), и каждый из них одинаково связан со всеми другими осцилляторами. На удивление, эта полностью нелинейная модель может быть решена точно в пределе бесконечного числа осцилляторов, N→ ∞; как вариант, используя аргументы самосогласованности, можно получить устойчивые решения с параметром порядка.</p>
+                         <p>Наиболее популярная форма модели имеет следующие управляющие уравнения: 
                             \begin{equation}
                             \frac{d\theta_{i}}{dt} = \omega_{i} + \frac{K}{N}\sum_{j=1}^{N}\sin(\theta_{j}-\theta_{i}), \qquad i=1\ldots N\
                             \end{equation} 
                          </p>
-                         <p data-pg-ia-hide class="font-italic" style="text-align: center">   Где \(\theta_{i} \) - фаза i осцилятора, \(\omega_{i} \) - собственная частота осцилятора i, N - общее число осциляторов в системе и K - константа, называемая параметром связи. </p>
+                         <p class="font-italic" style="text-align: center">   Где \(\theta_{i} \) - фаза осциллятора i, \(\omega_{i} \) - собственная частота осциллятора i, N - общее число осцилляторов в системе и K - константа, называемая константой связи.</p>
                          <img id="img1" style="float: left;" src="{% static 'images/KRgraph.png' %}">
-                         <p data-pg-ia-hide>График показывает r, так как мы неуклонно увеличиваем значение K в течение длительного периода времени в типичной симуляции, где n → ∞. Для малых Kc значение r остается небольшим, так как осцилляторы приближаются к своим собственным собственным частотам. По мере того, как K увеличивается после Kc, происходит внезапное увеличение r, так как осцилляторы "соединяются" вместе и входят в синхронность. 
-                        </p>
-                         <p data-pg-ia-hide > Часто полезно рассматривать "коллективный ритм" системы, или "центральную точку" фаз осцилляторов, изображенных на единичной окружности в комплексной плоскости. Это значение, параметр комплексного порядка, определяется как:
+                         <p >На графике изображен параметр r, когда мы плавно увеличиваем значение K в течение длительного периода времени в типичной ситуации, когда n → ∞. Для малых Kкрит, r остается небольшим, поскольку осцилляторы движутся вблизи своих собственных частот. При увеличении K, превышающем Kкрит, происходит внезапное увеличение r, поскольку осцилляторы "сцепляются" и входят в синхронность. </p>
+                         <p data-pg-ia-hide > Часто удобно рассматривать "коллективный ритм" системы, или "центральную точку" фаз осцилляторов, изображенную на единичном круге в комплексной плоскости. Это значение, комплексный параметр порядка, определяется как:
                             \begin{equation}
                             re^{i\psi}={\frac{1}{N}}\sum_{j=1}^{N}e^{i\theta_{j}}              
                             \end{equation} 
                          </p>
-                         <p data-pg-ia-hide class="font-italic" style="text-align: center"> Где N и \(\theta_ {i} \) определены, как и раньше, \(\psi \) - аргумент параметра порядка, а r - модуль параметра порядка.</p>
+                         <p class="font-italic" style="text-align: center"> Где N и \(\theta_{i} \) определены как и раньше, \(\psi \) аргумент параметра порядка, а r - модуль параметра порядка.</p>
                          <img id="img2" style="float: left;" src="{% static 'images/strogatzop.png' %}">
-                         <p data-pg-ia-hide>При K > Kc r очень быстро стремится к 1, что указывает на то, что система проявляет синхронное поведение. Когда K < Kc, даже если осцилляторы начинают работать близко друг к другу, r быстро падает. В этом случае мы видим много случайных вариаций r, так как осцилляторы могут естественным образом сближаться в периоды времени без синхронного поведения.</p>
+                         <p >Когда K > Kc, r очень быстро стремится к 1, указывая на то, что система демонстрирует синхронное поведение. Когда K < Kc, даже если осцилляторы начинают двигаться близко друг к другу, r быстро уменьшается. В этом случае мы видим много случайных колебаний r, поскольку осцилляторы могут естественным образом двигаться ближе друг к другу в периоды времени без синхронного поведения.</p>
 
                     </div>
                 </div>
@@ -348,19 +411,21 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 data-pg-ia-hide>Зависимость сигналов от времени</h2>
-                        <p data-pg-ia-hide>На графике ниже показана синхронизация 100 генераторов с параметром связи(K), равным 300. Вы можете ввести любую другую комбинацию в форме, приведенной ниже. Могут возникнуть некоторые ошибки, поэтому если они произойдут, пожалуйста, перезагрузите страницу. </p>
-                    <div class="col-md-12, container6" id="fig_container">
+                        <h2 >Зависимость фаз от времени</h2>
+                        <p data-pg-ia-hide>На графике ниже показана синхронизация 100 осцилляторов с параметром связи (K) равным 300. Вы можете ввести любую другую комбинацию в форму ниже. Возможны ошибки, поэтому в случае их возникновения перезагрузите страницу. </p>
+                    <div class="col-md-12 container6" id="fig_container">
                          {{ div_figure1|safe }}
                     </div>
                     <div class="container1">
-                        <div class="container6"> <form action="graph_n1ru" method="POST">
+                        <div class="container6"> <form action="graph_n1" method="POST">
                             {% csrf_token %}
                             Введите N: <input type="number" pattern="[0-9]+" min="1" max="1000" name="N" required class="TextField" placeholder="0-1000" />
-                              Введите K: <input type="number" pattern="[0-9]+" min="1" max="1000" name="K" required class="TextField" placeholder="0-1000" />
-                              Введите t: <input type="number"step="any" pattern="[0-9]+" min="0" max="1000" name="t" required class="TextField" placeholder="0.0-1000.0" />
+                            Введите K: <input type="number" pattern="[0-9]+" min="1" max="1000" name="K" required class="TextField" placeholder="0-1000" />
+                            Введите t: <input type="number"step="any" pattern="[0-9]+" min="0" max="1000" name="t" required class="TextField" placeholder="0.0-1000.0" />
                               <div class="btn-group" role="group">
-                            <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="Submit" value="Выполнить"/>
+                            <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="Submit" value="Отправить"/>
+                            
+                            
                             </form> </div></div>
                     </div>   
                     
@@ -373,68 +438,58 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2 data-pg-ia-hide>Параметр порядка</h2>
-                        <p data-pg-ia-hide>График является примером, на котором количество осцилляторов(N) установлено в 10. Имейте в виду, что если введенный параметр связи слишком большой, то страница будет загружаться очень медленно, или даже может выдать ошибку. </p>
+                        <h2>Параметр порядка</h2>
+                        <p>График представляет собой демонстрацию зависимости, при этом число осцилляторов(N) равно 10. Шаг параметра связи можно ввести ниже. Имейте в виду, что если введенный параметр связи слишком велик, страница будет загружаться очень медленно или выдать ошибку.</p>
+                        <p>Чем больше значение в поле "точность", тем достовернее будут результаты.</p>
                     <div class="col-md-12 container6" id="fig_container">
                          {{ div_figure2|safe }}
                     </div>
                     <div class="container1">
-                        <div class="container6"> <form action="graph_n2ru" method="POST">
+                        <div class="container6"> <form action="graph_n2" method="POST">
                             {% csrf_token %}
                             Введите N: <input type="number" pattern="[0-9]+" min="1" max="1000" required name="N" class="TextField" placeholder="0-1000" />
-                            Введите шаг параметра связи: <input type="number" step="any" pattern="[0-9]+" min="0" max="1000" name="m" required class="0-1000" placeholder="0-1000" />
                             Введите K: <input type="number" step="any" pattern="[0-9]+" min="0" max="1000" name="t" required class="TextField" placeholder="0-1000" />
-                            <p> </p>
-                            <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="Submit" value="Выполнить"/>
-                            <p> </p>
-                            </form> </div>
+                            Точность: <input type="number" step="any" pattern="[0-9]+" min="0" max="1000" name="m" required class="TextField" placeholder="0-1000" />
+                            <div class="btn-group" role="group">
+                            <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="Submit" value="Отправить"/>
+                            </form> </div></div>
                     </div> 
-                    <p data-pg-ia-hide>Поскольку сервер, к сожалению, не может справиться с большими вычислениями и, скорее всего, упадет при большом количестве осцилляторов, вот несколько предварительно скомпилированных графиков для 10, 50, 100, 500 и 1000 осцилляторов. Шаг параметра связи равен 500.</p> 
-                    <div class="demo-gallery col-md-12">
+                    <p>Поскольку сервер, к сожалению, не может обрабатывать большие вычисления, и, скорее всего, будет падать при большом количестве осцилляторов, здесь приведены некоторые предварительно скомпилированные графики для 10, 50, 100, 500 и 1000 осцилляторов. Шаг параметра связи - 500.</p> 
+                    <div class="demo-gallery">
                         <ul id="lightgallery">
                           <li data-responsive="{% static 'images/Figure_1.png' %}" data-src="{% static 'images/Figure_1.png' %}"
-                          data-sub-html="<h2>Число осциляторов равно 10</h2><p></p>" data-pinterest-text="Pin it" data-tweet-text="share on twitter ">
+                          data-sub-html="<h2>Number of oscillators is 10</h2><p></p>">
                             <a href="">
                               <img class="img-responsive" src="{% static 'images/Figure_1.png' %}">
-                              <div class="demo-gallery-poster">
-                                <img src="https://sachinchoolur.github.io/lightGallery/static/img/zoom.png">
-                              </div>
+                              
                             </a>
                           </li>
                           <li data-responsive="{% static 'images/Figure_4.png' %}" data-src="{% static 'images/Figure_4.png' %}"
-                          data-sub-html="<h2>Число осциляторов равно 50</h2><p></p>" data-pinterest-text="Pin it" data-tweet-text="share on twitter ">
+                          data-sub-html="<h2>Number of oscillators is 50</h2><p></p>">
                             <a href="">
                               <img class="img-responsive" src="{% static 'images/Figure_4.png' %}">
-                              <div class="demo-gallery-poster">
-                                <img src="https://sachinchoolur.github.io/lightGallery/static/img/zoom.png">
-                              </div>
+                              
                             </a>
                           </li>
                           <li data-responsive="{% static 'images/Figure_2.png' %}" data-src="{% static 'images/Figure_2.png' %}"
-                          data-sub-html="<h2>Число осциляторов равно 100</h2><p></p>" data-pinterest-text="Pin it" data-tweet-text="share on twitter ">
+                          data-sub-html="<h2>Number of oscillators is 100</h2><p></p>">
                             <a href="">
                               <img class="img-responsive" src="{% static 'images/Figure_2.png' %}">
-                              <div class="demo-gallery-poster">
-                                <img src="https://sachinchoolur.github.io/lightGallery/static/img/zoom.png">
-                              </div>
+                              
                             </a>
                           </li>
                           <li data-responsive="{% static 'images/Figure_5.png' %}" data-src="{% static 'images/Figure_5.png' %}"
-                          data-sub-html="<h2>Число осциляторов равно 500</h2><p></p>" data-pinterest-text="Pin it" data-tweet-text="share on twitter ">
+                          data-sub-html="<h2>Number of oscillators is 500</h2><p></p>">
                             <a href="">
                               <img class="img-responsive" src="{% static 'images/Figure_5.png' %}">
-                              <div class="demo-gallery-poster">
-                                <img src="https://sachinchoolur.github.io/lightGallery/static/img/zoom.png">
-                              </div>
+                              
                             </a>
                           </li>
                           <li data-responsive="{% static 'images/Figure_3.png' %}" data-src="{% static 'images/Figure_3.png' %}"
-                          data-sub-html="<h2>Число осциляторов равно 1000</h2><p></p>" data-pinterest-text="Pin it" data-tweet-text="share on twitter ">
+                          data-sub-html="<h2>Number of oscillators is 1000</h2><p></p>">
                             <a href="">
                               <img class="img-responsive" src="{% static 'images/Figure_3.png' %}">
-                              <div class="demo-gallery-poster">
-                                <img src="https://sachinchoolur.github.io/lightGallery/static/img/zoom.png">
-                              </div>
+                              
                             </a>
                           </li>
                         </ul>
@@ -443,68 +498,78 @@
                 </div>
             </div>
         </section>
-        <section id="section4" style="background-color: #eeeeee;">
+        <section data-pg-class-style="section" id="section4" style="background-color: #eeeeee;">
           <div class="container">
-              <div class="row">
-                  <div class="col-md-12">
-                      <h2 data-pg-ia-hide>Как это работает</h2>
-                      <p data-pg-ia-hide>Сайт работает под управлением Django, поэтому основная часть, которая отображает эту страницу, живет в файле под названием <i>views.py</i>. Для отрисовки графов используется библиотека mpld3, которая преобразует граф matplotlib в canvas, который может быть встроен в страницу.</p>
-                      <pre><code class="language-python">
-                        N1 = 50  # число осциляторов
-                        K1 = 300  # K/N = параметр амплитуды связи
-                        interval_t1 = 100  # пространство t
-                        l1 = random.uniform(0, 2 * pi, N1)
-                        theta01 = []  # начальные фазы
-                        omega1 = random.uniform(1, 3, N1)  # частота
+                <div class="row">
+                    <div class="col-md-12">
+                        <h2>Адаптивная модель Курамото</h2>
+                        <p >Особенностью адаптивных сетей является наличие свойства адаптивности межэлементных взаимодействий, которое заключается в динамическом изменении силы связи между элементами сети в зависимости от их текущих состояний.</p>
+                        <p> 
+                          \begin{equation}
+                            \frac{d\theta_{i}}{dt} = \omega_{i} + \frac{K|\omega_{i}|}{N}\sum_{j=1}^{N}\sin(\theta_{j}-\theta_{i}), \qquad i=1\ldots N\
+                            \end{equation}
+                        </p>
+                        <div class="col-md-12 container6" id="fig_container">
+                         {{ div_figure3|safe }}
+                        </div>
+                    <div class="container1">
+                      <p><center>Чем больше значение в поле "точность", тем достовернее будут результаты.</p></center>
+                      <p><center> Расчет в прямом направлении: </center></p>
+                        <div class="container6"> <form action="graph_n3" method="POST">
+                            {% csrf_token %}
+                            Введите N: <input type="number" pattern="[0-9]+" min="1" max="90" required name="N" class="TextField" placeholder="1-90" />
+                            Введите K: <input type="number" step="any" pattern="[0-9]+" min="0" max="50" name="t" required class="TextField" placeholder="0-50" />
+                            Точность: <input type="number" step="any" pattern="[0-9]+" min="0" max="50" name="m" required class="TextField" placeholder="0-50" />
+                            <div class="btn-group" role="group">
+                            <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="Submit" value="Отправить"/>
+                            </form> </div></div>
+                        </div> 
+
+                      <div class="container1">
+                      <p><center>Расчет в обратном направлении: </center></p>
+                        <div class="container6"> <form action="graph_n4" method="POST">
+                            {% csrf_token %}
+                            Введите N: <input type="number" pattern="[0-9]+" min="1" max="90" required name="N" class="TextField" placeholder="1-90" />
+                            Введите K: <input type="number" step="any" pattern="[0-9]+" min="0" max="50" name="t" required class="TextField" placeholder="0-50" />
+                            Точность: <input type="number" step="any" pattern="[0-9]+" min="0" max="50" name="m" required class="TextField" placeholder="0-50" />
+                            <div class="btn-group" role="group">
+                            <input type="Submit" class="btn btn-lg btn-secondary fw-bold btn-dark center-block" name="Submit" value="Отправить"/>
+                            </form> </div></div>
+                        </div> 
+                        <p> Ниже представлены результаты моделирования адаптивной системы: </p>
+                        <div id="customize-thumbnails-gallery" class='centered'>
+    <a href="{% static 'images/compare.png' %}">
+        <img src="{% static 'images/thumbnails/compare_tn.jpg' %}" />
+    </a>
+    <a href="{% static 'images/compare_2.png' %}">
+        <img src="{% static 'images/thumbnails/compare_2_tn.jpg' %}" />
+    </a>
+    <a href="{% static 'images/compare_3.png' %}">
+        <img src="{% static 'images/thumbnails/compare_3_tn.jpg' %}" />
+    </a>
+    <p>Для адаптивных связей параметры порядка, рассчитанные в "прямом" и "обратном" направлениях по параметру связи, ведут себя по-разному.</p>
+    <a href="{% static 'images/0-4.png' %}" data-sub-html="<h2>Forward transition</h2>">
+        <img src="{% static 'images/thumbnails/0-4_tn.jpg' %}" />
+    </a>
+    <a href="{% static 'images/4-0.png' %}" data-sub-html="<h2>Backward transition</h2>">
+        <img src="{% static 'images/thumbnails/4-0_tn.jpg' %}" />
+    </a>
+</div>
+        </section>
+        <section data-pg-class-style="section" id="section5">
+          <pre><code>
+                        <center><h6>Для более точного моделирования запустите программу на собственном компьютере.</h6></center>
+                        <center><a class="btn btn-primary" role="button" href="{% url 'download' %}">Загрузить</a></center>
+                        <center><p>Для запуска установите <a href="https://www.python.org/downloads/" class="text-black">Python</a> и <a href="https://scipy.org/install/" class="text-black">SciPy</a> </p></center>
                       </code>
                     </pre>
-                    <p data-pg-ia-hide>Код выше показывает, как устанавливаются начальные параметры. Далее мы определяем уравнение Курамото: </p>
-                    <pre><code class="language-python">
-                    def kuramoto1(theta1, t1, omega1, K1, N1):
-                    A, B = sin(theta1), cos(theta1)
-                    return omega1 + (K1 / N1) * (B * sum(A) - A * sum(B))
-                  </code></pre>
-                  <p data-pg-ia-hide>Оно решается с помощью функции <i>odeint</i>. </p>
-                  <pre><code class="language-python">
-                  theta1 = odeint(kuramoto1, theta01, t1, args=(omega1, K1, N1)) 
-                </code></pre>
-                <p data-pg-ia-hide>Зависимость r(t) вычисляется таким образом:</p>
-                <pre><code class="language-python">
-                S11 = [sum(cos(theta1[i])) for i in range(interval_t1)]
-                d11 = array([i ** 2 for i in S11])
-
-                S21 = [sum(sin(theta1[i])) for i in range(interval_t1)]
-                d21 = array([i ** 2 for i in S21])
-
-                r1 = (1.0 / N1) * sqrt(d11 + d21)
-              </code></pre>
-                <p data-pg-ia-hide>И, наконец, построение графиков:</p>
-                <pre><code class="language-python">
-                fig1, (ax1, ax2) = plt.subplots(1, 2, figsize=(15,6))
-                for i in range(N1):
-                    ax1.plot(t1, sin(omega1[i] * t1 + theta1[:, i]))
-                ax1.set(xlabel='t', ylabel='sin(ω(t)+θ)')
-
-                ax2.plot(t1, r1)
-                ax2.set(xlabel='t', ylabel='r (t)')
-
-                ax1.grid()
-                ax2.grid()
-                fig1.tight_layout()
-                html_fig1 = mpld3.fig_to_html(fig1, template_type='general')
-
-                plt.close(fig1)
-                </code></pre>
-                
-                  </div>
-              </div>
-          </div>
         </section>
+        
         <footer class=" bg-dark pb-3 pt-3 text-light">
             <div class="container">
                 <div class="row">
                     <div class="col-md-6">
-                        <p class="mb-0">Cоздано <a href="https://icosane.github.io/esoragoto/" class="text-white">icosane</a>. Какие-нибудь права, наверное, защищены. 2021
+                        <p class="mb-0">Создано <a href="https://icosane.github.io/esoragoto/" class="text-white">icosane</a>. Какие-то права наверное защищены. 2021-2022
                         </p>
                     </div>
                 </div>
@@ -513,12 +578,26 @@
         
         
         <script type="text/javascript" src="{% static 'esoragoto/pgia/lib/pgia.js' %}"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/js/lightgallery.min.js" ></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery-js/1.4.0/css/lightgallery.min.css" />
+        <script type="text/javascript" src="{% static 'esoragoto/lightgallery.min.js' %}"></script>
+        <link rel="stylesheet" href="{% static 'esoragoto/lightgallery.min.css' %}" />
         <script src="{% static 'esoragoto/prism.js' %}"></script>
+        
         
         <script>
         lightGallery(document.getElementById('lightgallery'));
+        </script>
+        <script type="text/javascript">
+          lightGallery(document.getElementById('customize-thumbnails-gallery'), {
+    // Add a custom class to apply style only for the particular gallery
+    addClass: 'lg-custom-thumbnails',
+
+    // Remove the starting animations.
+    // This can be done by overriding CSS as well
+    appendThumbnailsTo: '.lg-outer',
+
+    animateThumb: false,
+    allowMediaOverlap: true,
+});
         </script>
         
     </body>
