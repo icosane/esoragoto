@@ -15,7 +15,7 @@ Provides:
 - Free HTTPS url (https://\<your app name\>.herokuapp.com)
 - Downtime after periods of inactivity
 
-## Where to check the code without all the Django stuff?
+## Check underlying code here:
 https://github.com/icosane/aqualilac
 
 ## Support or Contact
