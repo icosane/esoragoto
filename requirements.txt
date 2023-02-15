@@ -1,4 +1,4 @@
-Django == 4.0.9
+Django == 4.1.7
 matplotlib == 3.5.1
 mpld3 == 0.5.7
 numpy == 1.22.0
